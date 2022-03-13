@@ -1,0 +1,73 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2022-03-13T01:06:46.930736+00:00",
+  "repo": "openalto/draft-alto-oam-yang",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDOFlouSc5FRnJO",
+      "title": " draft-bw-alto-cost-mode: Change Typedef to Identity",
+      "url": "https://github.com/openalto/draft-alto-oam-yang/issues/1",
+      "state": "OPEN",
+      "author": "dhruvdhody",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "fno2010"
+      ],
+      "labels": [],
+      "body": "Hi Jensen,\r\n\r\nIn light of  draft-bw-alto-cost-mode, we should change the typedef to identity to allow more cost modes to be defined in the future. I will raise an issue in github to track this as well \r\n\r\n     typedef cost-mode {\r\n       type enumeration {\r\n         enum numerical {\r\n           value 1;\r\n           description\r\n             \"This mode indicates that it is safe to perform numerical\r\n              operations\";\r\n         }\r\n         enum ordinal {\r\n           value 2;\r\n           description\r\n             \"This mode indicates that the cost values in a cost map\r\n              represent ranking\";\r\n         }\r\n       }\r\n       description\r\n         \"The cost mode attribute indicates how costs should be\r\n          interpreted. Specifically, the cost mode attribute indicates\r\n          whether returned costs should be interpreted as numerical\r\n          values or ordinal rankings.\";\r\n       reference\r\n         \"Section 6.1.2 of RFC 7285.\";\r\n     }\r\nThanks! \r\nDhruv",
+      "createdAt": "2022-03-08T05:42:59Z",
+      "updatedAt": "2022-03-08T07:08:35Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
+  "pulls": []
+}
