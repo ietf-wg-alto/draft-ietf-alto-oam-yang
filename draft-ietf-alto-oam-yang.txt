@@ -34,7 +34,7 @@ Discussion Venues
    https://mailarchive.ietf.org/arch/browse/alto/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/openalto/draft-alto-oam-yang.
+   https://github.com/ietf-wg-alto/draft-alto-oam-yang.
 
 Status of This Memo
 
