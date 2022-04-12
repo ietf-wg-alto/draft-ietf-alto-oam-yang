@@ -5,16 +5,16 @@
 ALTO WG                                                         J. Zhang
 Internet-Draft                                         Tongji University
 Intended status: Standards Track                                D. Dhody
-Expires: 9 September 2022                            Huawei Technologies
+Expires: 14 October 2022                             Huawei Technologies
                                                                   K. Gao
                                                       Sichuan University
                                                                R. Schott
                                                         Deutsche Telekom
-                                                            8 March 2022
+                                                           12 April 2022
 
 
        A Yang Data Model for OAM and Management of ALTO Protocol
-                    draft-zhang-alto-oam-yang-latest
+                    draft-ietf-alto-oam-yang-latest
 
 Abstract
 
@@ -53,12 +53,12 @@ Status of This Memo
 
 
 
-Zhang, et al.           Expires 9 September 2022                [Page 1]
+Zhang, et al.            Expires 14 October 2022                [Page 1]
 
-Internet-Draft                ALTO O&M YANG                   March 2022
+Internet-Draft                ALTO O&M YANG                   April 2022
 
 
-   This Internet-Draft will expire on 9 September 2022.
+   This Internet-Draft will expire on 14 October 2022.
 
 Copyright Notice
 
@@ -85,36 +85,40 @@ Table of Contents
      4.1.  Scope of Data Model for ALTO O&M  . . . . . . . . . . . .   4
      4.2.  Basic Requirements  . . . . . . . . . . . . . . . . . . .   5
      4.3.  Additional Requirements for Extensibility . . . . . . . .   6
+     4.4.  Overview of ALTO O&M Data Model for Reference ALTO
+           Architecture  . . . . . . . . . . . . . . . . . . . . . .   6
    5.  Design of ALTO O&M Data Model . . . . . . . . . . . . . . . .   6
-     5.1.  Overview of ALTO O&M Data Model . . . . . . . . . . . . .   6
-     5.2.  Meta Information of ALTO Server . . . . . . . . . . . . .   8
-     5.3.  ALTO Information Resources Configuration Management . . .   8
-     5.4.  Data Sources  . . . . . . . . . . . . . . . . . . . . . .  11
-       5.4.1.  Yang DataStore Data Source  . . . . . . . . . . . . .  12
-       5.4.2.  Prometheus Data Source  . . . . . . . . . . . . . . .  12
-     5.5.  Model for ALTO Server-to-server Communication . . . . . .  12
+     5.1.  Overview of ALTO O&M Data Model . . . . . . . . . . . . .   7
+     5.2.  Meta Information of ALTO Server . . . . . . . . . . . . .   9
+     5.3.  ALTO Information Resources Configuration Management . . .   9
+     5.4.  Data Sources  . . . . . . . . . . . . . . . . . . . . . .  12
+       5.4.1.  Yang DataStore Data Source  . . . . . . . . . . . . .  13
+       5.4.2.  Prometheus Data Source  . . . . . . . . . . . . . . .  13
+     5.5.  Model for ALTO Server-to-server Communication . . . . . .  13
    6.  Design of ALTO O&M Statistics Data Model  . . . . . . . . . .  13
-   7.  Extension of ALTO O&M Data Model  . . . . . . . . . . . . . .  14
-   8.  ALTO OAM YANG Module  . . . . . . . . . . . . . . . . . . . .  15
-     8.1.  The ietf-alto Module  . . . . . . . . . . . . . . . . . .  15
-     8.2.  The ietf-alto-stats Module  . . . . . . . . . . . . . . .  27
-   9.  Security Considerations . . . . . . . . . . . . . . . . . . .  30
-   10. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  30
-   11. References  . . . . . . . . . . . . . . . . . . . . . . . . .  31
-     11.1.  Normative References . . . . . . . . . . . . . . . . . .  31
-     11.2.  Informative References . . . . . . . . . . . . . . . . .  32
-   Appendix A.  Example Module for Information Resource Creation
-           Algorithm . . . . . . . . . . . . . . . . . . . . . . . .  33
-   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  34
+     6.1.  Model for ALTO Logging and Fault Management . . . . . . .  14
+     6.2.  Model for ALTO-specific Performance Monitoring  . . . . .  14
+   7.  Extension of ALTO O&M Data Model  . . . . . . . . . . . . . .  15
+   8.  ALTO OAM YANG Module  . . . . . . . . . . . . . . . . . . . .  16
+     8.1.  The ietf-alto Module  . . . . . . . . . . . . . . . . . .  16
+     8.2.  The ietf-alto-stats Module  . . . . . . . . . . . . . . .  28
+   9.  Security Considerations . . . . . . . . . . . . . . . . . . .  31
+   10. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  31
+   11. References  . . . . . . . . . . . . . . . . . . . . . . . . .  32
+     11.1.  Normative References . . . . . . . . . . . . . . . . . .  32
 
 
 
-Zhang, et al.           Expires 9 September 2022                [Page 2]
+Zhang, et al.            Expires 14 October 2022                [Page 2]
 
-Internet-Draft                ALTO O&M YANG                   March 2022
+Internet-Draft                ALTO O&M YANG                   April 2022
 
 
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  34
+     11.2.  Informative References . . . . . . . . . . . . . . . . .  33
+   Appendix A.  Example Module for Information Resource Creation
+           Algorithm . . . . . . . . . . . . . . . . . . . . . . . .  34
+   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  35
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  35
 
 1.  Introduction
 
@@ -161,13 +165,9 @@ Internet-Draft                ALTO O&M YANG                   March 2022
 
 
 
-
-
-
-
-Zhang, et al.           Expires 9 September 2022                [Page 3]
+Zhang, et al.            Expires 14 October 2022                [Page 3]
 
-Internet-Draft                ALTO O&M YANG                   March 2022
+Internet-Draft                ALTO O&M YANG                   April 2022
 
 
 3.2.  Prefixes in Data Node Names
@@ -221,9 +221,9 @@ Internet-Draft                ALTO O&M YANG                   March 2022
 
 
 
-Zhang, et al.           Expires 9 September 2022                [Page 4]
+Zhang, et al.            Expires 14 October 2022                [Page 4]
 
-Internet-Draft                ALTO O&M YANG                   March 2022
+Internet-Draft                ALTO O&M YANG                   April 2022
 
 
 4.2.  Basic Requirements
@@ -277,9 +277,9 @@ Internet-Draft                ALTO O&M YANG                   March 2022
 
 
 
-Zhang, et al.           Expires 9 September 2022                [Page 5]
+Zhang, et al.            Expires 14 October 2022                [Page 5]
 
-Internet-Draft                ALTO O&M YANG                   March 2022
+Internet-Draft                ALTO O&M YANG                   April 2022
 
 
 4.3.  Additional Requirements for Extensibility
@@ -287,7 +287,56 @@ Internet-Draft                ALTO O&M YANG                   March 2022
    R8: As the ALTO protocol is extensible, the data model for ALTO O&M
    should allow for augmentation to support potential future extensions.
 
+4.4.  Overview of ALTO O&M Data Model for Reference ALTO Architecture
+
+   Figure 1 shows a reference architecture for ALTO server
+   implementation and YANG modules that server components implement.
+   The server manager, information resource manager and data source
+   listeners need to implement ietf-alto.yang (see Section 5).  The
+   performance monitor and logging and fault manager need to implement
+   ietf-alto-stats.yang (see Section 6).
+
+   The data broker and algorithm plugins are not in the scope of the
+   data model defined in this document.  But user specified YANG modules
+   can be applied to different algorithm plugins by augmenting the data
+   model defined in this document (see Section 7).
+
+     +----------------------+      +-----------------+
+     | Performance Monitor: |<-----| Server Manager: |
+     | ietf-alto-stats.yang |<-+ +-| ietf-alto.yang  |
+     +----------------------+  | | +-----------------+
+                             report
+     +----------------------+  | | +-------------------+
+     | Logging and Fault    |  +---| Information       |
+     | Manager:             |<---+ | Resource Manager: |
+     | ietf-alto-stats.yang |<-----| ietf-alto.yang    |
+     +----------------------+      +-------------------+
+                                            ^|
+                                            || callback
+                                            |v
+        .............          ..............................
+       /             \ ------> . Algorithm Plugin:          .
+       . Data Broker .  read   . example-ietf-alto-alg.yang .
+       ...............         ..............................
+              ^
+              | write
+     +----------------+  Southbound  ++=============++
+     | Data Source    |     API      ||             ||
+     | Listener:      | <==========> || Data Source ||
+     | ietf-alto.yang |              ||             ||
+     +----------------+              ++=============++
+
+      Figure 1: A Reference ALTO Server Architecture and YANG Modules
+
 5.  Design of ALTO O&M Data Model
+
+
+
+
+Zhang, et al.            Expires 14 October 2022                [Page 6]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
 
 5.1.  Overview of ALTO O&M Data Model
 
@@ -330,14 +379,6 @@ Internet-Draft                ALTO O&M YANG                   March 2022
       |     |     +--rw delegation    inet:uri
       |     +--:(networkmap)
       |     |  +--rw alto-networkmap-params
-
-
-
-Zhang, et al.           Expires 9 September 2022                [Page 6]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
-
       |     |     +--rw is-default?   boolean
       |     |     +--rw filtered?     boolean
       |     |     +--rw (algorithm)
@@ -345,6 +386,14 @@ Internet-Draft                ALTO O&M YANG                   March 2022
       |     |  +--rw alto-costmap-params
       |     |     +--rw filtered?                   boolean
       |     |     +--rw cost-type-names*            string
+
+
+
+Zhang, et al.            Expires 14 October 2022                [Page 7]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
       |     |     +--rw cost-constraints?           boolean
       |     |     +--rw max-cost-types?             uint32 {multi-cost}?
       |     |     +--rw testable-cost-type-names*   string {multi-cost}?
@@ -386,14 +435,6 @@ Internet-Draft                ALTO O&M YANG                   March 2022
          |  +--:(proactive)
          |     +--rw poll-interval                   uint32
          +--rw (source-params)?
-
-
-
-Zhang, et al.           Expires 9 September 2022                [Page 7]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
-
             +--:(yang-datastore)
             |  +--rw yang-datastore-source-params
             |     +--rw source-path    yang:xpath1.0
@@ -401,6 +442,13 @@ Internet-Draft                ALTO O&M YANG                   March 2022
                +--rw prometheus-source-params
                   +--rw source-uri    inet:uri
                   +--rw query-data?   string
+
+
+
+Zhang, et al.            Expires 14 October 2022                [Page 8]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
 
 5.2.  Meta Information of ALTO Server
 
@@ -441,15 +489,6 @@ Internet-Draft                ALTO O&M YANG                   March 2022
    server can use this model to create, update, and remove the ALTO
    information resource.
 
-
-
-
-
-Zhang, et al.           Expires 9 September 2022                [Page 8]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
-
    Each resoruce entry provide configuration defining how to create or
    update an ALTO information resource.  Adding a new resource entry
    will submit an ALTO information resource creation intent to the
@@ -458,6 +497,14 @@ Internet-Draft                ALTO O&M YANG                   March 2022
    information resource creation intent.  Removing an existing resource
    entry will remove the corresponding ALTO information resource
    creation intent and also the created ALTO information resource.
+
+
+
+
+Zhang, et al.            Expires 14 October 2022                [Page 9]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
 
    The parameter of the intent interface defined by a resource entry
    MUST include a unique resource-id and a resource-type.
@@ -494,18 +541,6 @@ Internet-Draft                ALTO O&M YANG                   March 2022
    reference data sources subscribed by the data-source entries (See
    Section 5.4).
 
-
-
-
-
-
-
-
-Zhang, et al.           Expires 9 September 2022                [Page 9]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
-
    The developer cannot customize the creation algorithm of the ird
    resource.  The default ird resource will be created automatically
    based on all the added resource entries.  The delegated ird resource
@@ -519,6 +554,14 @@ Internet-Draft                ALTO O&M YANG                   March 2022
       |  +--rw resource-id                       resource-id
       |  +--rw resource-type                     identityref
       |  +--rw description?                      string
+
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 10]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
       |  +--rw accepted-group*                   string
       |  +--rw dependency*                       resource-id
       |  +--rw auth
@@ -554,14 +597,6 @@ Internet-Draft                ALTO O&M YANG                   March 2022
       |     |     +--rw cost-constraints?           boolean
       |     |     +--rw max-cost-types?             uint32 {multi-cost}?
       |     |     +--rw testable-cost-type-names*   string {multi-cost}?
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 10]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
-
       |     |     +--rw calendar-attributes {cost-calendar}?
       |     |     |  +--rw cost-type-names*       string
       |     |     |  +--rw time-interval-size     decimal64
@@ -575,6 +610,14 @@ Internet-Draft                ALTO O&M YANG                   March 2022
       |     |  +--rw alto-propmap-params
       |     |     +--rw (algorithm)
       |     +--:(cdni) {cdni}?
+
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 11]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
       |     |  +--rw alto-cdni-params
       |     |     +--rw (algorithm)
       |     +--:(update) {incr-update}?
@@ -610,18 +653,26 @@ Internet-Draft                ALTO O&M YANG                   March 2022
    of fetching the data in milliseconds.  If reactive is false or poll-
    interval is zero, the ALTO server will not update the data source.
 
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 11]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
-
    The data-source/source-params node can be augmented for different
    types of data sources.  This data model only includes import
    interfaces for a list of predefined data sources.  More data sources
    can be supported by future documents and other third-party providers.
+
+
+
+
+
+
+
+
+
+
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 12]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
 
    module: ietf-alto
      +--rw alto-server
@@ -666,15 +717,28 @@ Internet-Draft                ALTO O&M YANG                   March 2022
 
    TBD.
 
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 12]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
-
 6.  Design of ALTO O&M Statistics Data Model
+
+
+
+
+
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 13]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
+6.1.  Model for ALTO Logging and Fault Management
+
+   As section 16.2.1 and section 16.2.3 of [RFC7285] suggest, the YANG
+   data module defined in this document contains statistics for logging
+   and failure detection.
+
+   NOTE: The detailed YANG module will appear in the future version.
+
+6.2.  Model for ALTO-specific Performance Monitoring
 
    As section 16.2.5 of [RFC7285] suggests, the YANG data module defined
    in this document also contains statistics for ALTO-specific
@@ -713,22 +777,17 @@ Internet-Draft                ALTO O&M YANG                   March 2022
 
    *  Statistics for calendar (for [RFC8896])
 
+
+
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 14]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
    The module, "ietf-alto-stats", augments the ietf-alto module to
    include statistics at the ALTO server and information resource level.
-
-
-
-
-
-
-
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 13]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
 
    module: ietf-alto-stats
 
@@ -774,17 +833,18 @@ Internet-Draft                ALTO O&M YANG                   March 2022
 
    *  The data-source choice.
 
+
+
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 15]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
    The following example shows how the developer augments the algorithm
    choice of alto-networkmap-params with a creation algorithm for the
    network map resource.
-
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 14]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
 
    module: example-ietf-alto-alg
 
@@ -830,17 +890,17 @@ Internet-Draft                ALTO O&M YANG                   March 2022
 
      import ietf-inet-types {
        prefix "inet";
+
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 16]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
        reference
          "RFC 6991: Common YANG Data Types";
      }
-
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 15]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
 
      import ietf-yang-types {
        prefix "yang";
@@ -886,18 +946,18 @@ Internet-Draft                ALTO O&M YANG                   March 2022
         they appear in all capitals, as shown here.";
 
      revision "2022-03-07" {
+
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 17]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
        description
          "Initial Version.";
        reference
          "RFC XXXX: A YANG Data Model for OAM and Management of ALTO
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 16]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
-
           Protocol.";
      }
 
@@ -942,18 +1002,18 @@ Internet-Draft                ALTO O&M YANG                   March 2022
        description
          "Format of Resource ID";
        reference
+
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 18]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
          "Section 9.1.1 of RFC 7285.";
      }
 
      identity resource-types {
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 17]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
-
        description
          "Base identity for type of information resource.";
      }
@@ -998,18 +1058,18 @@ Internet-Draft                ALTO O&M YANG                   March 2022
          "Support multi-cost extension.";
        reference
          "RFC 8189: Multi-Cost Application-Layer Traffic Optimization
+
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 19]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
           (ALTO)";
      }
 
      feature cost-calendar {
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 18]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
-
        description
          "Support cost calendar extension.";
        reference
@@ -1054,18 +1114,18 @@ Internet-Draft                ALTO O&M YANG                   March 2022
            "Supported cost types";
        }
        leaf cost-constraints {
+
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 20]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
          type boolean;
          description
            "If true, then the ALTO server allows cost
             constraints to be included in requests to the
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 19]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
-
             corresponding URI. If not present, this field MUST
             be interpreted as if it specified false.";
        }
@@ -1110,18 +1170,18 @@ Internet-Draft                ALTO O&M YANG                   March 2022
            type uint32 {
              range "1..max";
            }
+
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 21]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
            mandatory true;
            description
              "A strictly positive integer (greater or equal to 1) that
               indicates the number of values of the Cost Calendar
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 20]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
-
               array.";
          }
          description
@@ -1166,18 +1226,18 @@ Internet-Draft                ALTO O&M YANG                   March 2022
          leaf cost-metric {
            type cost-metric;
            mandatory true;
+
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 22]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
            description
              "The referenced cost metric";
          }
          description
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 21]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
-
            "Mapping between name and referenced cost type";
        }
        list meta {
@@ -1222,18 +1282,18 @@ Internet-Draft                ALTO O&M YANG                   March 2022
            type string;
            description
              "Access list for authenticated clients.";
+
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 23]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
          }
          leaf-list dependency {
            type resource-id;
            description
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 22]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
-
              "A list of dependent information resources.";
          }
          container auth {
@@ -1278,18 +1338,18 @@ Internet-Draft                ALTO O&M YANG                   March 2022
                reference
                  "Section 11.2.1 and Section 11.3.1 of RFC 7285.";
                leaf is-default {
+
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 24]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
                  type boolean;
                  description
                    "Set whether this is the default network map";
                }
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 23]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
-
                leaf filtered {
                  type boolean;
                  default false;
@@ -1334,18 +1394,18 @@ Internet-Draft                ALTO O&M YANG                   March 2022
                leaf-list prop-types {
                  type string;
                  min-elements 1;
+
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 25]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
                  description
                    "Supported endpoint properties.";
                }
                uses algorithm;
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 24]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
-
              }
            }
            case propmap {
@@ -1390,18 +1450,18 @@ Internet-Draft                ALTO O&M YANG                   March 2022
              base source-types;
            }
            mandatory true;
+
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 26]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
            description
              "Source-type to be defined";
          }
          choice update-policy {
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 25]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
-
            mandatory true;
            case reactive {
              leaf reactive {
@@ -1446,18 +1506,18 @@ Internet-Draft                ALTO O&M YANG                   March 2022
                leaf query-data {
                  type string;
                  description
+
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 27]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
                    "Query expression";
                }
                description
                  "Prometheus specific configuration";
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 26]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
-
              }
            }
            description
@@ -1503,16 +1563,15 @@ Internet-Draft                ALTO O&M YANG                   March 2022
        "This YANG module defines all the configured and operational
         parameters of the administrated ALTO server instance.
 
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 28]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
         Copyright (c) 2022 IETF Trust and the persons identified as
         authors of the code.  All rights reserved.
-
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 27]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
 
         Redistribution and use in source and binary forms, with or
         without modification, is permitted pursuant to, and subject to
@@ -1559,17 +1618,17 @@ Internet-Draft                ALTO O&M YANG                   March 2022
      }
 
      augment "/alto:alto-server/alto:resource/alto:resource-params"
+
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 29]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
            + "/alto:networkmap/alto:alto-networkmap-params" {
        description
          "Augmented statistics for network maps only.";
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 28]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
-
        leaf num-map-pid {
          type yang:counter32;
          config false;
@@ -1615,17 +1674,17 @@ Internet-Draft                ALTO O&M YANG                   March 2022
             service.";
        }
        leaf num-event-total {
+
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 30]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
          type yang:counter32;
          config false;
          description
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 29]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
-
            "Total number of update events sent to all the connected
             clients.";
        }
@@ -1672,15 +1731,15 @@ Internet-Draft                ALTO O&M YANG                   March 2022
      Registrant Contact: The IESG.
      XML: N/A; the requested URI is an XML namespace.
 
+
+
+Zhang, et al.            Expires 14 October 2022               [Page 31]
+
+Internet-Draft                ALTO O&M YANG                   April 2022
+
+
    This document registers two YANG modules in the "YANG Module Names"
    registry [RFC6020].
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 30]
-
-Internet-Draft                ALTO O&M YANG                   March 2022
-
 
      Name: ietf-alto
      Namespace: urn:ietf:params:xml:ns:yang:ietf-alto
@@ -1730,12 +1789,9 @@ Internet-Draft                ALTO O&M YANG                   March 2022
 
 
 
-
-
-
-Zhang, et al.           Expires 9 September 2022               [Page 31]
+Zhang, et al.            Expires 14 October 2022               [Page 32]
 
-Internet-Draft                ALTO O&M YANG                   March 2022
+Internet-Draft                ALTO O&M YANG                   April 2022
 
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
@@ -1789,25 +1845,25 @@ Internet-Draft                ALTO O&M YANG                   March 2022
 
 
 
-Zhang, et al.           Expires 9 September 2022               [Page 32]
+Zhang, et al.            Expires 14 October 2022               [Page 33]
 
-Internet-Draft                ALTO O&M YANG                   March 2022
+Internet-Draft                ALTO O&M YANG                   April 2022
 
 
    [I-D.ietf-alto-path-vector]
               Gao, K., Lee, Y., Randriamasy, S., Yang, Y. R., and J. J.
               Zhang, "An ALTO Extension: Path Vector", Work in Progress,
-              Internet-Draft, draft-ietf-alto-path-vector-24, 7 March
+              Internet-Draft, draft-ietf-alto-path-vector-25, 20 March
               2022, <https://www.ietf.org/archive/id/draft-ietf-alto-
-              path-vector-24.txt>.
+              path-vector-25.txt>.
 
    [I-D.ietf-alto-performance-metrics]
               Wu, Q., Yang, Y. R., Lee, Y., Dhody, D., Randriamasy, S.,
               and L. M. C. Murillo, "ALTO Performance Cost Metrics",
               Work in Progress, Internet-Draft, draft-ietf-alto-
-              performance-metrics-26, 2 March 2022,
+              performance-metrics-28, 21 March 2022,
               <https://www.ietf.org/archive/id/draft-ietf-alto-
-              performance-metrics-26.txt>.
+              performance-metrics-28.txt>.
 
    [I-D.ietf-alto-unified-props-new]
               Roome, W., Randriamasy, S., Yang, Y. R., Zhang, J. J., and
@@ -1845,9 +1901,9 @@ Appendix A.  Example Module for Information Resource Creation Algorithm
 
 
 
-Zhang, et al.           Expires 9 September 2022               [Page 33]
+Zhang, et al.            Expires 14 October 2022               [Page 34]
 
-Internet-Draft                ALTO O&M YANG                   March 2022
+Internet-Draft                ALTO O&M YANG                   April 2022
 
 
    module example-ietf-alto-alg {
@@ -1901,9 +1957,9 @@ Authors' Addresses
 
 
 
-Zhang, et al.           Expires 9 September 2022               [Page 34]
+Zhang, et al.            Expires 14 October 2022               [Page 35]
 
-Internet-Draft                ALTO O&M YANG                   March 2022
+Internet-Draft                ALTO O&M YANG                   April 2022
 
 
    Dhruv Dhody
@@ -1957,4 +2013,4 @@ Internet-Draft                ALTO O&M YANG                   March 2022
 
 
 
-Zhang, et al.           Expires 9 September 2022               [Page 35]
+Zhang, et al.            Expires 14 October 2022               [Page 36]
