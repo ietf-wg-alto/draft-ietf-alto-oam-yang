@@ -1,7 +1,7 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-04-12T01:23:09.737367+00:00",
-  "repo": "openalto/draft-alto-oam-yang",
+  "timestamp": "2022-04-14T01:37:30.937464+00:00",
+  "repo": "ietf-wg-alto/draft-ietf-alto-oam-yang",
   "labels": [
     {
       "name": "bug",
@@ -54,7 +54,7 @@
       "number": 1,
       "id": "I_kwDOFlouSc5FRnJO",
       "title": " draft-bw-alto-cost-mode: Change Typedef to Identity",
-      "url": "https://github.com/openalto/draft-alto-oam-yang/issues/1",
+      "url": "https://github.com/ietf-wg-alto/draft-ietf-alto-oam-yang/issues/1",
       "state": "OPEN",
       "author": "dhruvdhody",
       "authorAssociation": "COLLABORATOR",
