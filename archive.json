@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-05-03T01:49:15.504980+00:00",
+  "timestamp": "2022-05-05T01:42:43.097155+00:00",
   "repo": "ietf-wg-alto/draft-ietf-alto-oam-yang",
   "labels": [
     {
@@ -64,7 +64,7 @@
       "labels": [],
       "body": "Hi Jensen,\r\n\r\nIn light of  draft-bw-alto-cost-mode, we should change the typedef to identity to allow more cost modes to be defined in the future. I will raise an issue in github to track this as well \r\n\r\n     typedef cost-mode {\r\n       type enumeration {\r\n         enum numerical {\r\n           value 1;\r\n           description\r\n             \"This mode indicates that it is safe to perform numerical\r\n              operations\";\r\n         }\r\n         enum ordinal {\r\n           value 2;\r\n           description\r\n             \"This mode indicates that the cost values in a cost map\r\n              represent ranking\";\r\n         }\r\n       }\r\n       description\r\n         \"The cost mode attribute indicates how costs should be\r\n          interpreted. Specifically, the cost mode attribute indicates\r\n          whether returned costs should be interpreted as numerical\r\n          values or ordinal rankings.\";\r\n       reference\r\n         \"Section 6.1.2 of RFC 7285.\";\r\n     }\r\nThanks! \r\nDhruv",
       "createdAt": "2022-03-08T05:42:59Z",
-      "updatedAt": "2022-03-22T07:33:58Z",
+      "updatedAt": "2022-05-03T13:12:02Z",
       "closedAt": null,
       "comments": [
         {
@@ -87,6 +87,69 @@
           "body": "Make sense for me to ask YANG doctors. I just posted this question to YANG doctors: https://mailarchive.ietf.org/arch/msg/yang-doctors/rVflF_sVEv3fR4reZ6y93ikD2yE/",
           "createdAt": "2022-03-22T07:33:58Z",
           "updatedAt": "2022-03-22T07:33:58Z"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "I_kwDOFlouSc5I9d7c",
+      "title": "Statistic related to logging and fault management",
+      "url": "https://github.com/ietf-wg-alto/draft-ietf-alto-oam-yang/issues/2",
+      "state": "OPEN",
+      "author": "fno2010",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "We need to give a proposal for [Sec 6.1 of draft-ietf-alto-oam-yang-00](https://datatracker.ietf.org/doc/html/draft-ietf-alto-oam-yang-00#section-6.1) to meet R2 and R4 in [Sec 4.2](https://datatracker.ietf.org/doc/html/draft-ietf-alto-oam-yang-00#section-4.2).",
+      "createdAt": "2022-05-03T13:09:08Z",
+      "updatedAt": "2022-05-03T13:11:43Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 3,
+      "id": "I_kwDOFlouSc5I9f0V",
+      "title": "Data model for ALTO client-side O&M",
+      "url": "https://github.com/ietf-wg-alto/draft-ietf-alto-oam-yang/issues/3",
+      "state": "OPEN",
+      "author": "fno2010",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "This item requires more discussion.",
+      "createdAt": "2022-05-03T13:16:34Z",
+      "updatedAt": "2022-05-03T13:16:34Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 4,
+      "id": "I_kwDOFlouSc5I9jrZ",
+      "title": "Configuration for server level management",
+      "url": "https://github.com/ietf-wg-alto/draft-ietf-alto-oam-yang/issues/4",
+      "state": "OPEN",
+      "author": "fno2010",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "This is required by [R1 in Sec 4.2](https://datatracker.ietf.org/doc/html/draft-ietf-alto-oam-yang-00#section-4.2).\r\n\r\nSome questions from WG need to be considered:\r\n\r\n- Question from Quifang Ma:  Should HTTP-server related configuration be in our scope(e.g., cache-control, Retry-After)?\r\n  - https://mailarchive.ietf.org/arch/msg/alto/ZLV1cQIaSjYLeQ3KPh3ykJ3YMq8/",
+      "createdAt": "2022-05-03T13:24:26Z",
+      "updatedAt": "2022-05-03T14:34:28Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "dhruvdhody",
+          "authorAssociation": "COLLABORATOR",
+          "body": "ONe reference to check out would be https://datatracker.ietf.org/doc/draft-ietf-netconf-http-client-server/ \r\nI cant find there, perhaps part of some groupings?\r\n\r\n",
+          "createdAt": "2022-05-03T13:46:36Z",
+          "updatedAt": "2022-05-03T13:46:36Z"
+        },
+        {
+          "author": "fno2010",
+          "authorAssociation": "MEMBER",
+          "body": "Nice reference. Also, it seems that https://datatracker.ietf.org/doc/html/draft-ietf-netconf-restconf-client-server-25#section-3.1.2.2 can be a good example of how to use those groupings.",
+          "createdAt": "2022-05-03T14:34:28Z",
+          "updatedAt": "2022-05-03T14:34:28Z"
         }
       ]
     }
