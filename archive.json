@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-05-31T01:46:37.204024+00:00",
+  "timestamp": "2022-06-02T01:48:55.066329+00:00",
   "repo": "ietf-wg-alto/draft-ietf-alto-oam-yang",
   "labels": [
     {
@@ -102,9 +102,17 @@
       "labels": [],
       "body": "We need to give a proposal for [Sec 6.1 of draft-ietf-alto-oam-yang-00](https://datatracker.ietf.org/doc/html/draft-ietf-alto-oam-yang-00#section-6.1) to meet R2 and R4 in [Sec 4.2](https://datatracker.ietf.org/doc/html/draft-ietf-alto-oam-yang-00#section-4.2).",
       "createdAt": "2022-05-03T13:09:08Z",
-      "updatedAt": "2022-05-03T13:11:43Z",
+      "updatedAt": "2022-05-31T14:02:28Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "fno2010",
+          "authorAssociation": "MEMBER",
+          "body": "Just checked the statement in the LMAP YANG Model draft [RFC8194]:\r\n\r\n>    o  Logging Information: Some of the Logging Information, in\r\n      particular 'success/failure/warning messages in response to\r\n      information updates from the Controller', will be handled by the\r\n      protocol used to manipulate the LMAP-specific configuration.  The\r\n      LMAP data model defined in this document assumes that runtime\r\n      Logging Information will be communicated using protocols that do\r\n      not require a formal data model, e.g., the syslog protocol defined\r\n      in [RFC5424].\r\n\r\nMaybe ALTO should follow some similar principles to define the data model for logging and fault management.",
+          "createdAt": "2022-05-31T14:02:28Z",
+          "updatedAt": "2022-05-31T14:02:28Z"
+        }
+      ]
     },
     {
       "number": 3,
