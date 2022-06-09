@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-06-07T01:39:53.757718+00:00",
+  "timestamp": "2022-06-09T01:39:26.315418+00:00",
   "repo": "ietf-wg-alto/draft-ietf-alto-oam-yang",
   "labels": [
     {
@@ -160,6 +160,22 @@
           "updatedAt": "2022-05-03T14:34:28Z"
         }
       ]
+    },
+    {
+      "number": 5,
+      "id": "I_kwDOFlouSc5LTH6S",
+      "title": "Drive data model design using real implementation",
+      "url": "https://github.com/ietf-wg-alto/draft-ietf-alto-oam-yang/issues/5",
+      "state": "OPEN",
+      "author": "fno2010",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "We already have the reference architecture for the ALTO server: https://datatracker.ietf.org/doc/html/draft-ietf-alto-oam-yang-00#section-4.4\r\n\r\nTo make the data model design reasonable, I'll suggest we drive the data model design using some real ALTO implementation so that we can verify if we will suffer from any issues.\r\n\r\nOne candidate ALTO implementation is the OpenALTO, which we will demonstrate during the IETF 114 hackathon.\r\n\r\nWe will use this ticket to track if we will get any feedback from the OpenALTO development: https://github.com/openalto/ietf-hackathon/issues/48",
+      "createdAt": "2022-06-07T13:27:47Z",
+      "updatedAt": "2022-06-07T13:27:47Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": []
