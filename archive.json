@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-06-14T01:56:25.920824+00:00",
+  "timestamp": "2022-06-16T01:44:13.882064+00:00",
   "repo": "ietf-wg-alto/draft-ietf-alto-oam-yang",
   "labels": [
     {
@@ -126,9 +126,17 @@
       "labels": [],
       "body": "This item requires more discussion.",
       "createdAt": "2022-05-03T13:16:34Z",
-      "updatedAt": "2022-05-03T13:16:34Z",
+      "updatedAt": "2022-06-14T13:07:09Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "fno2010",
+          "authorAssociation": "MEMBER",
+          "body": "We do have several use cases which require O&M for ALTO clients. But I think the main concern is whether they require YANG techniques.",
+          "createdAt": "2022-06-14T13:07:09Z",
+          "updatedAt": "2022-06-14T13:07:09Z"
+        }
+      ]
     },
     {
       "number": 4,
