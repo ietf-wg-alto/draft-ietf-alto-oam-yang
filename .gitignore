@@ -15,7 +15,7 @@
 .python-version
 .refcache
 .tags
-.targets.mk
+/.*.mk
 /*-[0-9][0-9].xml
 archive.json
 issues.json
