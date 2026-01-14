@@ -47,8 +47,8 @@ allow for augmentation to support potential future extensions.
 [](#alto-ref-arch) shows a reference architecture for the ALTO server
 implementation and YANG modules that these server components need to implement.
 The server manager, information resource manager and data source listeners need
-to implement `ietf-alto.yang` (see [](#alto-model)). The performance monitor
-and logging and fault manager need to implement `ietf-alto-stats.yang` (see
+to implement "ietf-alto.yang" (see [](#alto-model)). The performance monitor
+and logging and fault manager need to implement "ietf-alto-stats.yang" (see
 [](#alto-stats-model)).
 
 The data broker and algorithm plugins are not in the scope of the data models

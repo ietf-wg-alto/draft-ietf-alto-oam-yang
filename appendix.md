@@ -4,10 +4,10 @@ Developers and operators can also extend the ALTO O&M data model to align
 with their own implementations. Specifically, the following nodes of the data
 model can be augmented:
 
-- The `server-discovery-manner` choice of the `server-discovery`.
-- The `authentication` choice of each `auth-client`.
-- The `data-source` choice.
-- The `algorithm` choice of the `resource-params` of each `resource`.
+- The "server-discovery-manner" choice of the "server-discovery".
+- The "authentication" choice of each "auth-client".
+- The "data-source" choice.
+- The "algorithm" choice of the "resource-params" of each "resource".
 
 ## An Example Module for Extended Server Discovery Manners {#example-server-disc}
 
@@ -15,10 +15,10 @@ The base data model defined by ietf-alto.yang only includes a reverse DNS based
 server discovery manner. The following example module demonstrates how
 additional server discovery manners can be augmented into the base data model.
 
-The case `internet-routing-registry` allows the ALTO server to update the
+The case "internet-routing-registry" allows the ALTO server to update the
 server URI to the attribute of the corresponding aut-num class in IRR.
 
-The case `peeringdb` allows the ALTO server to update the server URI to the org
+The case "peeringdb" allows the ALTO server to update the server URI to the org
 object of the organization record in PeeringDB.
 
 ~~~
@@ -147,7 +147,7 @@ delegate the authentication to a third-party OAuth 2.0 server. The following
 example module demonstrates how additional client authentication approaches can
 enrich the base data model.
 
-In this example, the `oauth2` case includes the URI to a third-party OAuth 2.0
+In this example, the "oauth2" case includes the URI to a third-party OAuth 2.0
 based authorization server that the ALTO server can redirect to for the client
 authentication.
 
@@ -221,13 +221,13 @@ The base data model defined by ietf-alto.yang does not include any choice cases
 for specific data sources. The following example module demonstrates how a
 implementation-specific data source can be augmented into the base data model.
 
-The `yang-datastore` case is used to import the YANG data from a YANG
+The "yang-datastore" case is used to import the YANG data from a YANG
 model-driven datastore. It includes:
 
-- `datastore` to indicate which datastore is fetched.
-- `target-paths` to specify the list of nodes or subtrees in the datastore.
-- `protocol` to indicate which protocol is used to access the datastore. Either
-  `restconf` or `netconf` can be used.
+- "datastore" to indicate which datastore is fetched.
+- "target-paths" to specify the list of nodes or subtrees in the datastore.
+- "protocol" to indicate which protocol is used to access the datastore. Either
+  "restconf" or "netconf" can be used.
 
 ~~~
 module example-vendor-alto-data-source {
@@ -393,28 +393,28 @@ module: example-vendor-alto-alg
           +--rw depth?             uint32
 ~~~
 
-This example defines a creation algorithm called `l3-unicast-cluster-algorithm`
+This example defines a creation algorithm called "l3-unicast-cluster-algorithm"
 for the network map resource. It takes two algorithm-specific parameters:
 
-'l3-unicast-topo':
+"l3-unicast-topo":
 : This parameter contains information referring to the target path name of an
-  operational `yang-datastore` data source node (See [](#example-data-source))
-  subscribed in the `data-source` list (See [](#data-source)). The referenced
-  target path in the corresponding `yang-datastore` data source is assumed for
+  operational "yang-datastore" data source node (See [](#example-data-source))
+  subscribed in the "data-source" list (See [](#data-source)). The referenced
+  target path in the corresponding "yang-datastore" data source is assumed for
   an IETF layer 3 unicast topology defined in {{RFC8346}}. The algorithm uses
   the topology data from this data source to compute the ALTO network map
-  resource. 'source-datastore' refers to the 'source-id' of the operational
-  `yang-datastore` data source node, and 'topo-name' refers to the 'name' of
+  resource. "source-datastore" refers to the "source-id" of the operational
+  "yang-datastore" data source node, and "topo-name" refers to the "name" of
   the target path in the source datastore.
 
-'depth':
+"depth":
 : This optional parameter sets the depth of the clustering algorithm. For
   example, if the depth sets to 1, the algorithm will generate PID for every
   l3-node in the topology.
 
 The creation algorithm can be reactively called once the referenced data source
 updates. Therefore, the ALTO network map resource can be updated dynamically.
-The update of the reference data source depends on the used `update-policy` (See
+The update of the reference data source depends on the used "update-policy" (See
 [](#data-source)).
 
 ~~~
