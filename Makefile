@@ -12,3 +12,4 @@ endif
 
 YANGDIR := yang
 include tools/yang.mk
+include tools/auto-commit.mk
