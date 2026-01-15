@@ -5,14 +5,14 @@
 ALTO WG                                                         J. Zhang
 Internet-Draft                                         Tongji University
 Intended status: Standards Track                                D. Dhody
-Expires: 18 July 2026                                Huawei Technologies
+Expires: 19 July 2026                                Huawei Technologies
                                                                   K. Gao
                                                       Sichuan University
                                                                R. Schott
                                                         Deutsche Telekom
                                                                    Q. Ma
                                                                   Huawei
-                                                         14 January 2026
+                                                         15 January 2026
 
 
  YANG Data Models for the Application-Layer Traffic Optimization (ALTO)
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 July 2026.
+   This Internet-Draft will expire on 19 July 2026.
 
 Copyright Notice
 
