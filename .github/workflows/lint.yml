@@ -28,6 +28,38 @@ jobs:
 
     # Only report the result but not alert if failed
     - name: "Lint using pyang"
+      id: pyang-lint
       run: |
-        make pyang-lint || echo 'Syntax checking failed for some reason.'
+        # Capture output and exit code
+        set +e
+        make pyang-lint > pyang_output.txt 2>&1
+        PYANG_EXIT=$?
+        set -e
+
+        # Display results
+        if [ $PYANG_EXIT -eq 0 ]; then
+          echo "✅ All YANG modules passed syntax validation"
+          echo "## Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ **All YANG modules passed syntax validation**" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          cat pyang_output.txt >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+        else
+          echo "⚠️ Some YANG modules have syntax issues"
+          echo "## Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "⚠️ **Some YANG modules have syntax issues**" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          cat pyang_output.txt >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+        fi
+
+        # Always show the output
+        cat pyang_output.txt
+
+        # Exit with original code to not fail the step
+        exit $PYANG_EXIT
 
