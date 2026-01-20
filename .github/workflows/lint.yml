@@ -21,7 +21,10 @@ jobs:
     - name: "Install dependencies"
       run: |
         # Install Ruby bundler for i-d-template dependency management
-        gem install bundler --no-document
+        gem install bundler --user-install --no-document
+        
+        # Add gem bin directory to PATH
+        export PATH="$HOME/.gem/ruby/3.2.0/bin:$PATH"
         
         # Install Python tools needed for draft generation
         pip install xml2rfc
