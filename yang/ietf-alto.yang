@@ -758,10 +758,10 @@ module ietf-alto {
               "A wrapper around the TCP server parameters
                to avoid name collisions.";
             uses tcp:tcp-server-grouping {
-              refine "local-port" {
+              refine "local-bind/local-port" {
                 default "80";
                 description
-                  "The RESTCONF server will listen on the IANA-
+                  "The ALTO server will listen on the IANA-
                    assigned well-known port value for 'http' (80)
                    if no value is specified.";
               }
@@ -776,7 +776,7 @@ module ietf-alto {
           container alto-server-parameters {
             description
               "A wrapper around the ALTO server parameters
-               to avoid name collisiions.";
+               to avoid name collisions.";
             uses alto-server;
           }
         }
@@ -791,7 +791,7 @@ module ietf-alto {
               "A wrapper around the TCP server parameters
                to avoid name collisions.";
             uses tcp:tcp-server-grouping {
-              refine "local-port" {
+              refine "local-bind/local-port" {
                 default "443";
                 description
                   "The ALTO server will listen on the IANA-
@@ -933,7 +933,7 @@ module ietf-alto {
       case central-truststore {
         if-feature "ts:central-truststore-supported";
         if-feature "ts:certificates";
-        uses ts:certificate-ref-grouping;
+        uses ts:central-certificate-ref-grouping;
         description
           "Reference of a CA certificate in the truststore to
            authenticate the TLS client.";
@@ -963,7 +963,7 @@ module ietf-alto {
       case central-truststore {
         if-feature "ts:central-truststore-supported";
         if-feature "ts:certificates";
-        uses ts:certificate-ref-grouping;
+        uses ts:central-certificate-ref-grouping;
         description
           "Reference of a EE certificate in the truststore to
            authenticate the TLS client.";
@@ -993,7 +993,7 @@ module ietf-alto {
       case central-truststore {
         if-feature "ts:central-truststore-supported";
         if-feature "ts:public-keys";
-        uses ts:public-key-ref-grouping;
+        uses ts:central-public-key-ref-grouping;
         description
           "Reference of a raw public key in the truststore to
            authenticate the TLS client.";

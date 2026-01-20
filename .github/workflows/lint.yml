@@ -1,4 +1,4 @@
-name: "Check Syntax of YANG Modules"
+name: "Validate YANG Modules"
 
 on:
   push:
@@ -9,57 +9,59 @@ on:
     - '**.yang'
 
 jobs:
-  build:
-    name: "Check Syntax of YANG Modules"
+  yang-catalog:
+    name: "Validate using YANG Catalog API"
     runs-on: ubuntu-latest
     steps:
     - name: "Checkout"
       uses: actions/checkout@v5
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.9
-
-    - name: "Install pyang"
+    - name: "Generate draft"
       run: |
-        python -m pip install --upgrade pip
-        pip install pyang
+        # Generate the draft file (this embeds YANG modules with xym tags)
+        make
 
-    # Only report the result but not alert if failed
-    - name: "Lint using pyang"
-      id: pyang-lint
+    - name: "Validate using YANG Catalog API"
+      id: yang-catalog-validate
       run: |
+        # Make the script executable
+        chmod +x ./tools/yang-validator-api.sh
+
         # Capture output and exit code
         set +e
-        make pyang-lint > pyang_output.txt 2>&1
-        PYANG_EXIT=$?
+        ./tools/yang-validator-api.sh draft-ietf-alto-oam-yang.txt > yang_catalog_output.txt 2>&1
+        CATALOG_EXIT=$?
         set -e
 
         # Display results
-        if [ $PYANG_EXIT -eq 0 ]; then
-          echo "✅ All YANG modules passed syntax validation"
-          echo "## Summary" >> $GITHUB_STEP_SUMMARY
+        if [ $CATALOG_EXIT -eq 0 ]; then
+          echo "✅ All YANG modules passed validation (YANG Catalog API)"
+          echo "## Summary (YANG Catalog API)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "✅ **All YANG modules passed syntax validation**" >> $GITHUB_STEP_SUMMARY
+          echo "✅ **All YANG modules passed validation using YANG Catalog API**" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "This validation uploads the draft and extracts YANG modules using xym." >> $GITHUB_STEP_SUMMARY
+          echo "It uses the latest dependencies from the YANG Catalog database." >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-          cat pyang_output.txt >> $GITHUB_STEP_SUMMARY
+          cat yang_catalog_output.txt >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
         else
-          echo "⚠️ Some YANG modules have syntax issues"
-          echo "## Summary" >> $GITHUB_STEP_SUMMARY
+          echo "❌ Some YANG modules failed validation (YANG Catalog API)"
+          echo "## Summary (YANG Catalog API)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "⚠️ **Some YANG modules have syntax issues**" >> $GITHUB_STEP_SUMMARY
+          echo "❌ **Some YANG modules failed validation using YANG Catalog API**" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "This validation uploads the draft and extracts YANG modules using xym." >> $GITHUB_STEP_SUMMARY
+          echo "It uses the latest dependencies from the YANG Catalog database." >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-          cat pyang_output.txt >> $GITHUB_STEP_SUMMARY
+          cat yang_catalog_output.txt >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
         fi
 
         # Always show the output
-        cat pyang_output.txt
+        cat yang_catalog_output.txt
 
         # Exit with original code to not fail the step
-        exit $PYANG_EXIT
-
+        exit $CATALOG_EXIT
