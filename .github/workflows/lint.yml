@@ -16,6 +16,11 @@ jobs:
     - name: "Checkout"
       uses: actions/checkout@v5
 
+    - name: "Install dependencies"
+      run: |
+        # Install Python tools needed for draft generation
+        pip install kramdown-rfc xml2rfc
+
     - name: "Generate draft"
       run: |
         # Generate the draft file (this embeds YANG modules with xym tags)
