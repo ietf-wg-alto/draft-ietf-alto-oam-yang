@@ -20,8 +20,11 @@ jobs:
 
     - name: "Install dependencies"
       run: |
+        # Install Ruby bundler for i-d-template dependency management
+        gem install bundler --no-document
+        
         # Install Python tools needed for draft generation
-        pip install kramdown-rfc xml2rfc
+        pip install xml2rfc
 
     - name: "Generate draft"
       run: |
