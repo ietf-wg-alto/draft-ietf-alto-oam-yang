@@ -34,47 +34,10 @@ jobs:
         # Generate the draft file (this embeds YANG modules with xym tags)
         make
 
-    - name: "Validate using YANG Catalog API"
-      id: yang-catalog-validate
-      run: |
-        # Make the script executable
-        chmod +x ./tools/yang-validator-api.sh
-
-        # Capture output and exit code
-        set +e
-        ./tools/yang-validator-api.sh draft-ietf-alto-oam-yang.txt > yang_catalog_output.txt 2>&1
-        CATALOG_EXIT=$?
-        set -e
-
-        # Display results
-        if [ $CATALOG_EXIT -eq 0 ]; then
-          echo "✅ All YANG modules passed validation (YANG Catalog API)"
-          echo "## Summary (YANG Catalog API)" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "✅ **All YANG modules passed validation using YANG Catalog API**" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "This validation uploads the draft and extracts YANG modules using xym." >> $GITHUB_STEP_SUMMARY
-          echo "It uses the latest dependencies from the YANG Catalog database." >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          cat yang_catalog_output.txt >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-        else
-          echo "❌ Some YANG modules failed validation (YANG Catalog API)"
-          echo "## Summary (YANG Catalog API)" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "❌ **Some YANG modules failed validation using YANG Catalog API**" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "This validation uploads the draft and extracts YANG modules using xym." >> $GITHUB_STEP_SUMMARY
-          echo "It uses the latest dependencies from the YANG Catalog database." >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          cat yang_catalog_output.txt >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-        fi
-
-        # Always show the output
-        cat yang_catalog_output.txt
-
-        # Exit with original code to not fail the step
-        exit $CATALOG_EXIT
+    - name: "Validate YANG modules using fno2010/ietf-yang-validator"
+      uses: fno2010/ietf-yang-validator@v1.1
+      with:
+        source: "draft-ietf-alto-oam-yang.txt"
+        validation-mode: "local"
+        validators: "pyang,yanglint"
+        fail-on-errors: "true"
