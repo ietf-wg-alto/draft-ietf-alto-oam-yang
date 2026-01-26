@@ -26,11 +26,18 @@ YANG_CATALOG_API="https://www.yangcatalog.org/yangvalidator/v2"
 # Debug mode flag
 DEBUG=false
 
-# Colors for output
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-NC='\033[0m' # No Color
+# Colors for output - disable if not a TTY (e.g., when redirected to file)
+if [ -t 1 ]; then
+    RED='\033[0;31m'
+    GREEN='\033[0;32m'
+    YELLOW='\033[1;33m'
+    NC='\033[0m' # No Color
+else
+    RED=''
+    GREEN=''
+    YELLOW=''
+    NC=''
+fi
 
 # Function to print debug output (to stderr to avoid interfering with return values)
 debug_echo() {
