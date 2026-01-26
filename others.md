@@ -88,8 +88,8 @@ reuse groupings with their security considerations:
 
   '/alto/alto-server/listen/https/tls-server-parameters':
   : This subtree reuses the 'tls-server-grouping' grouping defined in
-  {{I-D.ietf-netconf-tls-client-server}}. The security considerations of
-  {{I-D.ietf-netconf-tls-client-server}} have been applied to it.
+  {{RFC9645}}. The security considerations of
+  {{RFC9645}} have been applied to it.
   Specifically, all the "key" and "private-key" data nodes in it have the
   NACM extension "default-deny-all" set, thus preventing unrestricted
   read-access to the cleartext key values. Also, all writable data nodes

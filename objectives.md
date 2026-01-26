@@ -18,7 +18,7 @@ implementation, including:
   (e.g., database schema to store topology collected from an Interface to the
   Routing System (I2RS) client {{RFC7921}})
 
-Likewise, the specification does not cover considerations that are specific to the ALTO Transport Information Publication Service (TIPS) {{?I-D.ietf-alto-new-transport}}. Specifically, considerations related to HTTP/3 are out of scope.
+Likewise, the specification does not cover considerations that are specific to the ALTO Transport Information Publication Service (TIPS) {{?RFC9569}}. Specifically, considerations related to HTTP/3 are out of scope.
 
 For convenience, examples of how related extensions can be defined are provided in the Appendices.
 

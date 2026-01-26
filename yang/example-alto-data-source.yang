@@ -50,7 +50,7 @@ module example-alto-data-source {
     "This module contains a collection of vendor-specific cases of
      data sources for ALTO.";
 
-  revision 2023-02-28 {
+  revision 2026-01-26 {
     description
       "Version 1.0";
     reference

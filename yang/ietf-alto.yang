@@ -11,17 +11,17 @@ module ietf-alto {
   import ietf-truststore {
     prefix ts;
     reference
-      "RFC BBBB: A YANG Data Model for a Truststore";
+      "RFC 9641: A YANG Data Model for a Truststore";
   }
   import ietf-tcp-server {
     prefix tcp;
     reference
-      "RFC DDDD: YANG Groupings for TCP Clients and TCP Servers";
+      "RFC 9643: YANG Groupings for TCP Clients and TCP Servers";
   }
   import ietf-tls-server {
     prefix tls;
     reference
-      "RFC FFFF: YANG Groupings for TLS Clients and TLS Servers";
+      "RFC 9645: YANG Groupings for TLS Clients and TLS Servers";
   }
   import ietf-http-server {
     prefix http;
@@ -52,7 +52,7 @@ module ietf-alto {
      (https://www.rfc-editor.org/info/rfcXXXX); see the RFC itself
      for full legal notices.";
 
-  revision 2023-02-23 {
+  revision 2026-01-26 {
     description
       "Initial Version.";
     reference

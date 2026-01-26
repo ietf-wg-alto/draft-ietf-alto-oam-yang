@@ -96,9 +96,9 @@ normative:
   RFC9274:
   RFC9275:
   RFC9439:
-  I-D.ietf-netconf-trust-anchors:
-  I-D.ietf-netconf-tcp-client-server:
-  I-D.ietf-netconf-tls-client-server:
+  RFC9641:
+  RFC9643:
+  RFC9645:
   I-D.ietf-netconf-http-client-server:
   I-D.ietf-netconf-netconf-client-server:
   I-D.ietf-netconf-restconf-client-server:
@@ -143,14 +143,14 @@ See details: https://github.com/cabo/kramdown-rfc/issues/106
 ~~~ yang
 {::include yang/ietf-alto.yang}
 ~~~
-{: sourcecode-markers="true" sourcecode-name="ietf-alto@2023-02-23.yang"}
+{: sourcecode-markers="true" sourcecode-name="ietf-alto@2026-01-26.yang"}
 
 ## The "ietf-alto-stats" YANG Module
 
 ~~~ yang
 {::include yang/ietf-alto-stats.yang}
 ~~~
-{: sourcecode-markers="true" sourcecode-name="ietf-alto-stats@2023-02-23.yang"}
+{: sourcecode-markers="true" sourcecode-name="ietf-alto-stats@2026-01-26.yang"}
 
 {::include others.md}
 
