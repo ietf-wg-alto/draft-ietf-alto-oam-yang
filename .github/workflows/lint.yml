@@ -35,7 +35,7 @@ jobs:
         make
 
     - name: "Validate YANG modules using fno2010/ietf-yang-validator"
-      uses: fno2010/ietf-yang-validator@v1.1
+      uses: fno2010/ietf-yang-validator@v1.2
       with:
         source: "draft-ietf-alto-oam-yang.txt"
         validation-mode: "local"
