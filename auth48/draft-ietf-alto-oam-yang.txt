@@ -5,14 +5,14 @@
 ALTO WG                                                         J. Zhang
 Internet-Draft                                         Tongji University
 Intended status: Standards Track                                D. Dhody
-Expires: 24 July 2026                                Huawei Technologies
+Expires: 30 July 2026                                Huawei Technologies
                                                                   K. Gao
                                                       Sichuan University
                                                                R. Schott
                                                         Deutsche Telekom
                                                                    Q. Ma
                                                                   Huawei
-                                                         20 January 2026
+                                                         26 January 2026
 
 
  YANG Data Models for the Application-Layer Traffic Optimization (ALTO)
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 July 2026.
+   This Internet-Draft will expire on 30 July 2026.
 
 Copyright Notice
 
@@ -227,13 +227,13 @@ Table of Contents
     | yp     | ietf-yang- | [RFC8641]                                 |
     |        | push       |                                           |
     +--------+------------+-------------------------------------------+
-    | ts     | ietf-      | [I-D.ietf-netconf-trust-anchors]          |
+    | ts     | ietf-      | [RFC9641]                                 |
     |        | truststore |                                           |
     +--------+------------+-------------------------------------------+
-    | tcp    | ietf-tcp-  | [I-D.ietf-netconf-tcp-client-server]      |
+    | tcp    | ietf-tcp-  | [RFC9643]                                 |
     |        | server     |                                           |
     +--------+------------+-------------------------------------------+
-    | tls    | ietf-tls-  | [I-D.ietf-netconf-tls-client-server]      |
+    | tls    | ietf-tls-  | [RFC9645]                                 |
     |        | server     |                                           |
     +--------+------------+-------------------------------------------+
     | http   | ietf-http- | [I-D.ietf-netconf-http-client-server]     |
@@ -261,15 +261,6 @@ Table of Contents
    Editor instructions are specified elsewhere in this document.
 
    Please apply the following replacements:
-
-   *  BBBB --> the assigned RFC number for
-      [I-D.ietf-netconf-trust-anchors]
-
-   *  DDDD --> the assigned RFC number for
-      [I-D.ietf-netconf-tcp-client-server]
-
-   *  FFFF --> the assigned RFC number for
-      [I-D.ietf-netconf-tls-client-server]
 
    *  GGGG --> the assigned RFC number for
       [I-D.ietf-netconf-http-client-server]
@@ -310,8 +301,8 @@ Table of Contents
 
    Likewise, the specification does not cover considerations that are
    specific to the ALTO Transport Information Publication Service (TIPS)
-   [I-D.ietf-alto-new-transport].  Specifically, considerations related
-   to HTTP/3 are out of scope.
+   [RFC9569].  Specifically, considerations related to HTTP/3 are out of
+   scope.
 
    For convenience, examples of how related extensions can be defined
    are provided in the Appendices.
@@ -949,7 +940,7 @@ Table of Contents
 
 7.1.  The "ietf-alto" YANG Module
 
-   <CODE BEGINS> file "ietf-alto@2023-02-23.yang"
+   <CODE BEGINS> file "ietf-alto@2026-01-26.yang"
    module ietf-alto {
      yang-version 1.1;
      namespace "urn:ietf:params:xml:ns:yang:ietf-alto";
@@ -963,17 +954,17 @@ Table of Contents
      import ietf-truststore {
        prefix ts;
        reference
-         "RFC BBBB: A YANG Data Model for a Truststore";
+         "RFC 9641: A YANG Data Model for a Truststore";
      }
      import ietf-tcp-server {
        prefix tcp;
        reference
-         "RFC DDDD: YANG Groupings for TCP Clients and TCP Servers";
+         "RFC 9643: YANG Groupings for TCP Clients and TCP Servers";
      }
      import ietf-tls-server {
        prefix tls;
        reference
-         "RFC FFFF: YANG Groupings for TLS Clients and TLS Servers";
+         "RFC 9645: YANG Groupings for TLS Clients and TLS Servers";
      }
      import ietf-http-server {
        prefix http;
@@ -1004,7 +995,7 @@ Table of Contents
         (https://www.rfc-editor.org/info/rfcXXXX); see the RFC itself
         for full legal notices.";
 
-     revision 2023-02-23 {
+     revision 2026-01-26 {
        description
          "Initial Version.";
        reference
@@ -2418,7 +2409,7 @@ Table of Contents
 
 7.2.  The "ietf-alto-stats" YANG Module
 
-   <CODE BEGINS> file "ietf-alto-stats@2023-02-23.yang"
+   <CODE BEGINS> file "ietf-alto-stats@2026-01-26.yang"
    module ietf-alto-stats {
      yang-version 1.1;
      namespace "urn:ietf:params:xml:ns:yang:ietf-alto-stats";
@@ -2459,7 +2450,7 @@ Table of Contents
         (https://www.rfc-editor.org/info/rfcXXXX); see the RFC itself
         for full legal notices.";
 
-     revision 2023-02-23 {
+     revision 2026-01-26 {
        description
          "Initial Version.";
        reference
@@ -2917,9 +2908,8 @@ Table of Contents
       write" has been applied to them.
 
    '/alto/alto-server/listen/https/tls-server-parameters':  This subtree
-      reuses the 'tls-server-grouping' grouping defined in
-      [I-D.ietf-netconf-tls-client-server].  The security considerations
-      of [I-D.ietf-netconf-tls-client-server] have been applied to it.
+      reuses the 'tls-server-grouping' grouping defined in [RFC9645].
+      The security considerations of [RFC9645] have been applied to it.
       Specifically, all the "key" and "private-key" data nodes in it
       have the NACM extension "default-deny-all" set, thus preventing
       unrestricted read-access to the cleartext key values.  Also, all
@@ -2962,9 +2952,9 @@ Table of Contents
    [I-D.ietf-netconf-http-client-server]
               Watsen, K., "YANG Groupings for HTTP Clients and HTTP
               Servers", Work in Progress, Internet-Draft, draft-ietf-
-              netconf-http-client-server-30, 11 November 2025,
+              netconf-http-client-server-31, 26 January 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
-              http-client-server-30>.
+              http-client-server-31>.
 
    [I-D.ietf-netconf-netconf-client-server]
               Watsen, K., "A YANG Data Model for NETCONF Clients and
@@ -2979,27 +2969,6 @@ Table of Contents
               netconf-restconf-client-server-45, 4 December 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
               restconf-client-server-45>.
-
-   [I-D.ietf-netconf-tcp-client-server]
-              Watsen, K. and M. Scharf, "YANG Groupings for TCP Clients
-              and TCP Servers", Work in Progress, Internet-Draft, draft-
-              ietf-netconf-tcp-client-server-26, 4 April 2024,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
-              tcp-client-server-26>.
-
-   [I-D.ietf-netconf-tls-client-server]
-              Watsen, K., "YANG Groupings for TLS Clients and TLS
-              Servers", Work in Progress, Internet-Draft, draft-ietf-
-              netconf-tls-client-server-41, 16 March 2024,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
-              tls-client-server-41>.
-
-   [I-D.ietf-netconf-trust-anchors]
-              Watsen, K., "A YANG Data Model for a Truststore", Work in
-              Progress, Internet-Draft, draft-ietf-netconf-trust-
-              anchors-28, 16 March 2024,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
-              trust-anchors-28>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -3114,15 +3083,19 @@ Table of Contents
               DOI 10.17487/RFC9439, August 2023,
               <https://www.rfc-editor.org/rfc/rfc9439>.
 
-10.2.  Informative References
+   [RFC9641]  Watsen, K., "A YANG Data Model for a Truststore",
+              RFC 9641, DOI 10.17487/RFC9641, October 2024,
+              <https://www.rfc-editor.org/rfc/rfc9641>.
 
-   [I-D.ietf-alto-new-transport]
-              Gao, K., Schott, R., Yang, Y. R., Delwiche, L., and L.
-              Keller, "The ALTO Transport Information Publication
-              Service", Work in Progress, Internet-Draft, draft-ietf-
-              alto-new-transport-22, 3 January 2024,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-alto-
-              new-transport-22>.
+   [RFC9643]  Watsen, K. and M. Scharf, "YANG Groupings for TCP Clients
+              and TCP Servers", RFC 9643, DOI 10.17487/RFC9643, October
+              2024, <https://www.rfc-editor.org/rfc/rfc9643>.
+
+   [RFC9645]  Watsen, K., "YANG Groupings for TLS Clients and TLS
+              Servers", RFC 9645, DOI 10.17487/RFC9645, October 2024,
+              <https://www.rfc-editor.org/rfc/rfc9645>.
+
+10.2.  Informative References
 
    [RFC6291]  Andersson, L., van Helvoort, H., Bonica, R., Romascanu,
               D., and S. Mansfield, "Guidelines for the Use of the "OAM"
@@ -3153,6 +3126,12 @@ Table of Contents
    [RFC8641]  Clemm, A. and E. Voit, "Subscription to YANG Notifications
               for Datastore Updates", RFC 8641, DOI 10.17487/RFC8641,
               September 2019, <https://www.rfc-editor.org/rfc/rfc8641>.
+
+   [RFC9569]  Gao, K., Schott, R., Yang, Y. R., Delwiche, L., and L.
+              Keller, "The Application-Layer Traffic Optimization (ALTO)
+              Transport Information Publication Service (TIPS)",
+              RFC 9569, DOI 10.17487/RFC9569, September 2024,
+              <https://www.rfc-editor.org/rfc/rfc9569>.
 
 Appendix A.  Examples of Extending the ALTO O&M Data Model
 
@@ -3214,7 +3193,7 @@ A.1.  An Example Module for Extended Server Discovery Manners
        "This module contains a collection of vendor-specific cases of
         server discovery mechanisms for ALTO.";
 
-     revision 2023-02-28 {
+     revision 2026-01-26 {
        description
          "Version 1.0";
        reference
@@ -3343,7 +3322,7 @@ A.2.  An Example Module for Extended Client Authentication Approaches
        "This module contains a collection of vendor-specific cases of
         client authentication approaches for ALTO.";
 
-     revision 2023-02-28 {
+     revision 2026-01-26 {
        description
          "Version 1.0";
        reference
@@ -3443,7 +3422,7 @@ A.3.  Example Module for Extended Data Sources
        "This module contains a collection of vendor-specific cases of
         data sources for ALTO.";
 
-     revision 2023-02-28 {
+     revision 2026-01-26 {
        description
          "Version 1.0";
        reference
@@ -3609,7 +3588,7 @@ A.4.  An Example Module for Information Resource Creation Algorithm
        "This module contains a collection of vendor-specific cases of
         information resource creation algorithms for ALTO.";
 
-     revision 2023-02-28 {
+     revision 2026-01-26 {
        description
          "Version 1.0";
        reference
