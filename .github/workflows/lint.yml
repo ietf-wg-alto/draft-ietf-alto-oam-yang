@@ -11,9 +11,13 @@ on:
     - '.github/workflows/lint.yml'
 
 jobs:
-  yang-catalog:
-    name: "Validate using YANG Catalog API"
+  validate-yang:
+    name: "Validate YANG modules (${{ matrix.validation-mode }} mode)"
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        validation-mode: [api, local]
+      fail-fast: false
     steps:
     - name: "Checkout"
       uses: actions/checkout@v5
@@ -38,6 +42,28 @@ jobs:
       uses: fno2010/ietf-yang-validator@v1.2
       with:
         source: "draft-ietf-alto-oam-yang.txt"
-        validation-mode: "local"
-        validators: "pyang,yanglint"
+        validation-mode: "${{ matrix.validation-mode }}"
+        validators: ${{ matrix.validation-mode == 'local' && 'pyang,yanglint' || '' }}
         fail-on-errors: "true"
+
+    - name: "Display validation summary"
+      run: |
+        # Find the most recent validation report
+        REPORT_FILE=$(ls -t validation_report_*.json | head -1)
+        
+        if [ -f "$REPORT_FILE" ]; then
+          echo "## Validation Summary (${{ matrix.validation-mode }} mode)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo '```json' >> $GITHUB_STEP_SUMMARY
+          jq '.summary' "$REPORT_FILE" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+        else
+          echo "No validation report found" >> $GITHUB_STEP_SUMMARY
+        fi
+
+    - name: "Upload validation report"
+      uses: actions/upload-artifact@v4
+      with:
+        name: yang-validation-report-${{ matrix.validation-mode }}
+        path: validation_report_*.json
+        retention-days: 30
