@@ -1719,12 +1719,12 @@ allow for augmentation to support potential future extensions.<a href="#section-
 <a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-overview-of-alto-om-data-mo" class="section-name selfRef">Overview of ALTO O&amp;M Data Model</a>
         </h3>
 <p id="section-5.1-1">The "ietf-alto" module is designed to fit all the requirements listed in <a href="#sec-req" class="auto internal xref">Section 4</a>.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
-<p id="section-5.1-2">As shown in <a href="#tree-str" class="auto internal xref">Figure 1</a>, the top-level container 'alto' in the "ietf-alto" module contains a single
-'alto-server' and a list 'alto-client'.<a href="#section-5.1-2" class="pilcrow">¶</a></p>
-<p id="section-5.1-3">'alto-client' defines a list of configurations for other applications
+<p id="section-5.1-2">As shown in <a href="#tree-str" class="auto internal xref">Figure 1</a>, the top-level container "alto" in the "ietf-alto"
+module contains a list "alto-client" and a single "alto-server" container.<a href="#section-5.1-2" class="pilcrow">¶</a></p>
+<p id="section-5.1-3">The "alto-client" list defines a list of configurations for other applications
 to bootstrap an ALTO client. These data nodes can also be used by data sources and information
 resource creation algorithms that are configured by an ALTO server instance.<a href="#section-5.1-3" class="pilcrow">¶</a></p>
-<p id="section-5.1-4">The container 'alto-server' contains both configuration and operational
+<p id="section-5.1-4">The container "alto-server" contains both configuration and operational
 data of an administrated ALTO server instance.<a href="#section-5.1-4" class="pilcrow">¶</a></p>
 <span id="name-ietf-alto-tree-structure"></span><div id="tree-str">
 <figure id="figure-1">
@@ -1758,16 +1758,16 @@ module: ietf-alto
         <h3 id="name-data-model-for-alto-client-">
 <a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-data-model-for-alto-client-" class="section-name selfRef">Data Model for ALTO Client Operation and Management</a>
         </h3>
-<p id="section-5.2-1">As shown in <a href="#tree-alto-client" class="auto internal xref">Figure 2</a>, the 'alto-client' contains a list of
-client-side configurations. Each 'alto-client' entry contains the following
+<p id="section-5.2-1">As shown in <a href="#tree-alto-client" class="auto internal xref">Figure 2</a>, the "alto-client" contains a list of
+client-side configurations. Each "alto-client" entry contains the following
 data nodes:<a href="#section-5.2-1" class="pilcrow">¶</a></p>
 <span class="break"></span><dl class="dlParallel" id="section-5.2-2">
-          <dt id="section-5.2-2.1">'client-id':</dt>
+          <dt id="section-5.2-2.1">"client-id":</dt>
           <dd style="margin-left: 1.5em" id="section-5.2-2.2">
             <p id="section-5.2-2.2.1">A unique identifier that can be referenced by other applications.<a href="#section-5.2-2.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.2-2.3">'server-discovery-client':</dt>
+<dt id="section-5.2-2.3">"server-discovery-client":</dt>
           <dd style="margin-left: 1.5em" id="section-5.2-2.4">
             <p id="section-5.2-2.4.1">A container that is used to configure how this ALTO client discovers an ALTO server.<a href="#section-5.2-2.4.1" class="pilcrow">¶</a></p>
 </dd>
@@ -1843,7 +1843,7 @@ basic data nodes for the server setup that are detailed in the following subsect
             <h5 id="name-alto-server-listen-stack">
 <a href="#section-5.3.1.1" class="section-number selfRef">5.3.1.1. </a><a href="#name-alto-server-listen-stack" class="section-name selfRef">ALTO Server Listen Stack</a>
             </h5>
-<p id="section-5.3.1.1-1">The container 'listen' contains all the data nodes for the whole server listen stack
+<p id="section-5.3.1.1-1">The container "listen" contains all the data nodes for the whole server listen stack
 across TCP, TLS, HTTP and application layers (<a href="#tree-alto-gp" class="auto internal xref">Figure 4</a>).<a href="#section-5.3.1.1-1" class="pilcrow">¶</a></p>
 <span id="name-ietf-alto-server-groupings-"></span><div id="tree-alto-gp">
 <figure id="figure-4">
@@ -1877,16 +1877,16 @@ across TCP, TLS, HTTP and application layers (<a href="#tree-alto-gp" class="aut
 <a href="#name-ietf-alto-server-groupings-" class="selfRef">IETF ALTO Server Groupings Structure</a>
               </figcaption></figure>
 </div>
-<p id="section-5.3.1.1-3">The 'transport' choice node enables which protocol layers to be configured. By
+<p id="section-5.3.1.1-3">The "transport" choice node enables which protocol layers to be configured. By
 default, two cases are defined for different deployment scenarios:<a href="#section-5.3.1.1-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-5.3.1.1-4.1">
-                <p id="section-5.3.1.1-4.1.1">The 'http' case is provided to support scenarios where the TLS-termination is
+                <p id="section-5.3.1.1-4.1.1">The "http" case is provided to support scenarios where the TLS-termination is
 handled by other external components, e.g., reverse proxies or ingress
 controllers.<a href="#section-5.3.1.1-4.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-5.3.1.1-4.2">
-                <p id="section-5.3.1.1-4.2.1">The 'https' case is provided to support scenarios where the whole HTTPS
+                <p id="section-5.3.1.1-4.2.1">The "https" case is provided to support scenarios where the whole HTTPS
 server listen stack including TLS is handled by the ALTO server itself.<a href="#section-5.3.1.1-4.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
@@ -1922,17 +1922,17 @@ documents may extend it to fully support multi-domain scenarios.<a href="#sectio
 <a href="#name-ietf-alto-server-discovery-" class="selfRef">IETF ALTO Server Discovery Grouping Structure</a>
               </figcaption></figure>
 </div>
-<p id="section-5.3.1.2-4">The 'server-discovery' node provides configuration for the discovery of ALTO servers
-using a variety of mechanisms. The initial version of the "ietf-alto" module only defines the 'reverse-dns'
+<p id="section-5.3.1.2-4">The "server-discovery" node provides configuration for the discovery of ALTO servers
+using a variety of mechanisms. The initial version of the "ietf-alto" module only defines the "reverse-dns"
 case that is used to configure DNS NAPTR records for ALTO server discovery
 as suggested by <span>[<a href="#RFC7286" class="cite xref">RFC7286</a>]</span> and <span>[<a href="#RFC8686" class="cite xref">RFC8686</a>]</span>. It configures a set of
 endpoints that can be served by this ALTO server. The node
-contains two leaf lists. The 'static' list contains a list of manually configured
-endpoints. The 'dynamic' list points to a list of data sources to retrieve the
+contains two leaf lists. The "static" list contains a list of manually configured
+endpoints. The "dynamic" list points to a list of data sources to retrieve the
 endpoints dynamically. As suggested by <span>[<a href="#RFC7286" class="cite xref">RFC7286</a>]</span> and <span>[<a href="#RFC8686" class="cite xref">RFC8686</a>]</span>, the IP
-prefixes of the endpoints configured by both 'static' and 'dynamic' lists will
+prefixes of the endpoints configured by both "static" and "dynamic" lists will
 be translated into DNS NAPTR resource records for server discovery. The
-'server-discovery-manner' choice can be augmented by the future modules to
+"server-discovery-manner" choice can be augmented by the future modules to
 support other mechanisms.<a href="#section-5.3.1.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1945,10 +1945,10 @@ support other mechanisms.<a href="#section-5.3.1.2-4" class="pilcrow">¶</a></p>
           </h4>
 <p id="section-5.3.2-1">To satisfy R2 in <a href="#requirements" class="auto internal xref">Section 4.2</a>, the ALTO server instance contains the
 the logging data nodes shown in <a href="#tree-alto-log-gp" class="auto internal xref">Figure 6</a>.<a href="#section-5.3.2-1" class="pilcrow">¶</a></p>
-<p id="section-5.3.2-2">The 'logging-system' data node provides configuration to select a logging system to
+<p id="section-5.3.2-2">The "logging-system" data node provides configuration to select a logging system to
 capture log messages generated by an ALTO server.<a href="#section-5.3.2-2" class="pilcrow">¶</a></p>
-<p id="section-5.3.2-3">By default, 'syslog' is the only supported logging system. When selecting
-'syslog', the related configuration is delegated to the configuration file of
+<p id="section-5.3.2-3">By default, "syslog" is the only supported logging system. When selecting
+"syslog", the related configuration is delegated to the configuration file of
 the syslog <span>[<a href="#RFC5424" class="cite xref">RFC5424</a>]</span> server.<a href="#section-5.3.2-3" class="pilcrow">¶</a></p>
 <span id="name-ietf-alto-logging-system-gr"></span><div id="tree-alto-log-gp">
 <figure id="figure-6">
@@ -1965,7 +1965,7 @@ the syslog <span>[<a href="#RFC5424" class="cite xref">RFC5424</a>]</span> serve
 <a href="#name-ietf-alto-logging-system-gr" class="selfRef">IETF ALTO Logging System Grouping Structure</a>
             </figcaption></figure>
 </div>
-<p id="section-5.3.2-5">A specific server implementation can extend the 'logging-system' node to add
+<p id="section-5.3.2-5">A specific server implementation can extend the "logging-system" node to add
 other logging systems.<a href="#section-5.3.2-5" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1978,11 +1978,11 @@ other logging systems.<a href="#section-5.3.2-5" class="pilcrow">¶</a></p>
 ALTO-related management information (<a href="#tree-alto-server-level" class="auto internal xref">Figure 3</a>):<a href="#section-5.3.3-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-5.3.3-2.1">
-              <p id="section-5.3.3-2.1.1">The 'cost-type' list is the registry for the cost types that can be used in the
+              <p id="section-5.3.3-2.1.1">The "cost-type" list is the registry for the cost types that can be used in the
 ALTO server.<a href="#section-5.3.3-2.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-5.3.3-2.2">
-              <p id="section-5.3.3-2.2.1">The 'meta' list contains the customized meta data of the ALTO server. It is
+              <p id="section-5.3.3-2.2.1">The "meta" list contains the customized meta data of the ALTO server. It is
 populated into the meta field of the default Information Resource Directory
 (IRD).<a href="#section-5.3.3-2.2.1" class="pilcrow">¶</a></p>
 </li>
@@ -2012,7 +2012,7 @@ configurations are covered by the server listen stack.<a href="#section-5.3.4-1"
 <a href="#section-5.4.1" class="section-number selfRef">5.4.1. </a><a href="#name-data-source-configuration-m" class="section-name selfRef">Data Source Configuration Management</a>
           </h4>
 <p id="section-5.4.1-1">To satisfy R5-1 in <a href="#requirements" class="auto internal xref">Section 4.2</a>, the ALTO server instance contains a list
-of 'data-source' entries to subscribe the data sources from which ALTO
+of "data-source" entries to subscribe the data sources from which ALTO
 information resources are derived (Section 16.2.4 of <span>[<a href="#RFC7285" class="cite xref">RFC7285</a>]</span>).<a href="#section-5.4.1-1" class="pilcrow">¶</a></p>
 <span id="name-ietf-alto-server-data-sourc"></span><div id="tree-data-src">
 <figure id="figure-7">
@@ -2034,19 +2034,19 @@ module: ietf-alto
 <a href="#name-ietf-alto-server-data-sourc" class="selfRef">IETF ALTO Server Data Source Subtree Structure</a>
             </figcaption></figure>
 </div>
-<p id="section-5.4.1-3">As shown in <a href="#tree-data-src" class="auto internal xref">Figure 7</a>, a 'data-source' list entry includes:<a href="#section-5.4.1-3" class="pilcrow">¶</a></p>
+<p id="section-5.4.1-3">As shown in <a href="#tree-data-src" class="auto internal xref">Figure 7</a>, a "data-source" list entry includes:<a href="#section-5.4.1-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-5.4.1-4.1">
-              <p id="section-5.4.1-4.1.1">A unique 'source-id' for resource creation algorithms to reference.<a href="#section-5.4.1-4.1.1" class="pilcrow">¶</a></p>
+              <p id="section-5.4.1-4.1.1">A unique "source-id" for resource creation algorithms to reference.<a href="#section-5.4.1-4.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-5.4.1-4.2">
-              <p id="section-5.4.1-4.2.1">The 'source-type' attribute to declare the type of the data source.<a href="#section-5.4.1-4.2.1" class="pilcrow">¶</a></p>
+              <p id="section-5.4.1-4.2.1">The "source-type" attribute to declare the type of the data source.<a href="#section-5.4.1-4.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-5.4.1-4.3">
-              <p id="section-5.4.1-4.3.1">The 'source-params' to specify where and how to query the data.<a href="#section-5.4.1-4.3.1" class="pilcrow">¶</a></p>
+              <p id="section-5.4.1-4.3.1">The "source-params" to specify where and how to query the data.<a href="#section-5.4.1-4.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-5.4.1-5">The 'data-source/source-params' node can be augmented for different types of
+<p id="section-5.4.1-5">The "data-source/source-params" node can be augmented for different types of
 data sources. Note that the purpose of this node is not to fully set up the
 communication mechanisms for specific data sources, but to maintain how data
 sources are configured and expose them to the ALTO server.<a href="#section-5.4.1-5" class="pilcrow">¶</a></p>
@@ -2061,17 +2061,17 @@ included in <a href="#example-data-source" class="auto internal xref">Appendix A
           <h4 id="name-alto-information-resources-">
 <a href="#section-5.4.2" class="section-number selfRef">5.4.2. </a><a href="#name-alto-information-resources-" class="section-name selfRef">ALTO Information Resources Configuration Management</a>
           </h4>
-<p id="section-5.4.2-1">To satisfy R5-2 and R-3 in <a href="#requirements" class="auto internal xref">Section 4.2</a>, the ALTO server instance contains a list of 'resource'
-entries (<a href="#tree-alto-server-rsc" class="auto internal xref">Figure 8</a>). Each 'resource' entry contains the data nodes of an ALTO
+<p id="section-5.4.2-1">To satisfy R5-2 and R-3 in <a href="#requirements" class="auto internal xref">Section 4.2</a>, the ALTO server instance contains a list of "resource"
+entries (<a href="#tree-alto-server-rsc" class="auto internal xref">Figure 8</a>). Each "resource" entry contains the data nodes of an ALTO
 information resource (See Section 8.1 of <span>[<a href="#RFC7285" class="cite xref">RFC7285</a>]</span>). The operator of the ALTO
 server can use this model to create, update, and remove the ALTO information
 resources.<a href="#section-5.4.2-1" class="pilcrow">¶</a></p>
-<p id="section-5.4.2-2">Each 'resource' entry provides data nodes defining how to create or update
-an ALTO information resource. Adding a new 'resource' entry notifies the ALTO
+<p id="section-5.4.2-2">Each "resource" entry provides data nodes defining how to create or update
+an ALTO information resource. Adding a new "resource" entry notifies the ALTO
 server to create a new ALTO information resource. Updating an existing
-'resource' entry notifies the ALTO server to update the generation parameters
+"resource" entry notifies the ALTO server to update the generation parameters
 (e.g., capabilities and the creation algorithm) of an existing ALTO information
-resource. Removing an existing 'resource' entry will remove the corresponding
+resource. Removing an existing "resource" entry will remove the corresponding
 ALTO information resource.<a href="#section-5.4.2-2" class="pilcrow">¶</a></p>
 <span id="name-ietf-alto-resource-subtree-"></span><div id="tree-alto-server-rsc">
 <figure id="figure-8">
@@ -2138,14 +2138,14 @@ module: ietf-alto
 <a href="#name-ietf-alto-resource-subtree-" class="selfRef">IETF ALTO Resource Subtree Structure</a>
             </figcaption></figure>
 </div>
-<p id="section-5.4.2-4">A 'resource' list entry MUST include a unique 'resource-id' and a 'resource-type'.<a href="#section-5.4.2-4" class="pilcrow">¶</a></p>
-<p id="section-5.4.2-5">It may also include an 'accepted-role' node containing a list of 'role-name's
+<p id="section-5.4.2-4">A "resource" list entry MUST include a unique "resource-id" and a "resource-type".<a href="#section-5.4.2-4" class="pilcrow">¶</a></p>
+<p id="section-5.4.2-5">It may also include an "accepted-role" node containing a list of "role-name"s
 that is used by role-based access control for this ALTO information resource.
 See <a href="#alto-rbac" class="auto internal xref">Section 5.4.3</a> for details of information resource access control.<a href="#section-5.4.2-5" class="pilcrow">¶</a></p>
-<p id="section-5.4.2-6">For some 'resource-type', the 'resource' entry may also include a
-'dependency' node containing the 'resource-id' of the dependent ALTO information
+<p id="section-5.4.2-6">For some "resource-type", the "resource" entry may also include a
+"dependency" node containing the "resource-id" of the dependent ALTO information
 resources (Section 9.1.5 of <span>[<a href="#RFC7285" class="cite xref">RFC7285</a>]</span>).<a href="#section-5.4.2-6" class="pilcrow">¶</a></p>
-<p id="section-5.4.2-7">For each type of ALTO information resource, the 'resource' entry may also need
+<p id="section-5.4.2-7">For each type of ALTO information resource, the "resource" entry may also need
 type-specific parameters. These type-specific parameters can be split into two categories:<a href="#section-5.4.2-7" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-5.4.2-8">
 <li id="section-5.4.2-8.1">
@@ -2156,20 +2156,20 @@ information resource (Section 9.1.3 of <span>[<a href="#RFC7285" class="cite xre
             <li id="section-5.4.2-8.2">
               <p id="section-5.4.2-8.2.1">The other category of the type-specific parameters is algorithm-specific.
 The developer of the ALTO server can implement their own creation algorithms
-and augment the 'algorithm' node to declare algorithm-specific input
+and augment the "algorithm" node to declare algorithm-specific input
 parameters.<a href="#section-5.4.2-8.2.1" class="pilcrow">¶</a></p>
 </li>
           </ol>
-<p id="section-5.4.2-9">Except for the 'ird' resource, all the other types of 'resource' entries have
-an augmented 'algorithm' node. The augmented 'algorithm' node can reference data
-sources subscribed by the 'data-source' entries (See <a href="#data-source" class="auto internal xref">Section 5.4.1</a>). An
-example of extending the 'algorithm' node for a specific type of 'resource' is
+<p id="section-5.4.2-9">Except for the "ird" resource, all the other types of "resource" entries have
+an augmented "algorithm" node. The augmented "algorithm" node can reference data
+sources subscribed by the "data-source" entries (See <a href="#data-source" class="auto internal xref">Section 5.4.1</a>). An
+example of extending the "algorithm" node for a specific type of "resource" is
 included in <a href="#example-alg" class="auto internal xref">Appendix A.4</a>.<a href="#section-5.4.2-9" class="pilcrow">¶</a></p>
-<p id="section-5.4.2-10">The developer does not have to customize the creation algorithm of the 'ird'
-resource. The default 'ird' resource will be created automatically based on all
-the added 'resource' entries. The delegated 'ird' resource will be created as a
+<p id="section-5.4.2-10">The developer does not have to customize the creation algorithm of the "ird"
+resource. The default "ird" resource will be created automatically based on all
+the added "resource" entries. The delegated "ird" resource will be created as a
 static ALTO information resource (Section 9.2.4 of <span>[<a href="#RFC7285" class="cite xref">RFC7285</a>]</span>).<a href="#section-5.4.2-10" class="pilcrow">¶</a></p>
-<p id="section-5.4.2-11">Each 'resource' entry may also set thresholds of memory usage and active update
+<p id="section-5.4.2-11">Each "resource" entry may also set thresholds of memory usage and active update
 streams (if "incr-update" feature is enabled). <a href="#TableThreshold" class="auto internal xref">Table 3</a> describes
 limits that, once exceeded, will trigger notifications to be generated:<a href="#section-5.4.2-11" class="pilcrow">¶</a></p>
 <span id="name-notification-thresholds"></span><div id="TableThreshold">
@@ -2256,17 +2256,17 @@ module: ietf-alto
 <p id="section-5.4.3-4">The structure shown in <a href="#tree-auth" class="auto internal xref">Figure 9</a> can be used to configure the role-based access control:<a href="#section-5.4.3-4" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-5.4.3-5.1">
-              <p id="section-5.4.3-5.1.1">'auth-client' declares a list of ALTO clients that can be authenticated by
+              <p id="section-5.4.3-5.1.1">"auth-client" declares a list of ALTO clients that can be authenticated by
 the internal or external authorization server. This basic model only includes
 authentication approach directly provided by the HTTP or TLS server, but the
-operators or future documents can augment the 'authentication' choice for
+operators or future documents can augment the "authentication" choice for
 different authentication mechanisms.<a href="#section-5.4.3-5.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-5.4.3-5.2">
-              <p id="section-5.4.3-5.2.1">'role' defines a list of roles for access control. Each role contains a list
+              <p id="section-5.4.3-5.2.1">"role" defines a list of roles for access control. Each role contains a list
 of authenticated ALTO clients. Each client can be assigned to multiple roles.
-The 'role-name' can be referenced by the 'accepted-role' list of a
-'resource'. If an authenticated ALTO client is included in any roles with
+The "role-name" can be referenced by the "accepted-role" list of a
+"resource". If an authenticated ALTO client is included in any roles with
 access permission to a resource, the client is granted access to that
 resource.<a href="#section-5.4.3-5.2.1" class="pilcrow">¶</a></p>
 </li>
@@ -2357,8 +2357,8 @@ module: ietf-alto-stats
 <a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-model-for-alto-server-failu" class="section-name selfRef">Model for ALTO Server Failure Monitoring</a>
         </h3>
 <p id="section-6.1-1">To satisfy R6 in <a href="#requirements" class="auto internal xref">Section 4.2</a>, the "ietf-alto-stats" module contains statistics that indicate server failures (<a href="#tree-stat" class="auto internal xref">Figure 10</a>).<a href="#section-6.1-1" class="pilcrow">¶</a></p>
-<p id="section-6.1-2">More specifically, 'num-total-*' and 'num-total-last-*' provide server-level
-failure counters; 'num-res-*' and 'num-res-last-*' provide information
+<p id="section-6.1-2">More specifically, "num-total-*" and "num-total-last-*" provide server-level
+failure counters; "num-res-*" and "num-res-last-*" provide information
 resource-level failure counters.<a href="#section-6.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2393,11 +2393,11 @@ the "ietf-alto-stats" module also contains useful measurement information for ot
 extensions:<a href="#section-6.2-4" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-6.2-5.1">
-            <p id="section-6.2-5.1.1">'num-map-entry' and 'num-base-obj' provide measurement for number of generic
+            <p id="section-6.2-5.1.1">"num-map-entry" and "num-base-obj" provide measurement for number of generic
 ALTO entities (for <span>[<a href="#RFC9240" class="cite xref">RFC9240</a>]</span> and <span>[<a href="#RFC9241" class="cite xref">RFC9241</a>]</span>)<a href="#section-6.2-5.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-6.2-5.2">
-            <p id="section-6.2-5.2.1">'num-upd-stream' and 'num-upd-msg-*' provide statistics for update streams and
+            <p id="section-6.2-5.2.1">"num-upd-stream" and "num-upd-msg-*" provide statistics for update streams and
 messages (for <span>[<a href="#RFC8189" class="cite xref">RFC8189</a>]</span>)<a href="#section-6.2-5.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
@@ -4335,14 +4335,14 @@ or authentication can have a negative effect on network operations.
 These are the subtrees and data nodes and their sensitivity/
 vulnerability:<a href="#section-8-3" class="pilcrow">¶</a></p>
 <span class="break"></span><dl class="dlParallel" id="section-8-4">
-        <dt id="section-8-4.1">'/alto/alto-client/server-discovery':</dt>
+        <dt id="section-8-4.1">"/alto/alto-client/server-discovery":</dt>
         <dd style="margin-left: 1.5em" id="section-8-4.2">
           <p id="section-8-4.2.1">This subtree specifies a set of parameters for an ALTO client to discover ALTO servers.
   Unauthorized access to it could cause intruders to modify the ALTO discovery
-  parameters (e.g., 'dns-server') in order to expose an ALTO client to fake ALTO servers. Likewise, this data node can be manipulated to prevent an ALTO client from discovering a reachable ALTO server.<a href="#section-8-4.2.1" class="pilcrow">¶</a></p>
+  parameters (e.g., "dns-server") in order to expose an ALTO client to fake ALTO servers. Likewise, this data node can be manipulated to prevent an ALTO client from discovering a reachable ALTO server.<a href="#section-8-4.2.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-8-4.3">'/alto/alto-server/auth-client':</dt>
+<dt id="section-8-4.3">"/alto/alto-server/auth-client":</dt>
         <dd style="margin-left: 1.5em" id="section-8-4.4">
           <p id="section-8-4.4.1">This list specifies all the authenticated ALTO clients on an ALTO server.
   Unauthorized write access to this list can allow intruders to modify the entries
@@ -4350,7 +4350,7 @@ vulnerability:<a href="#section-8-3" class="pilcrow">¶</a></p>
   that has already been authenticated. Likewise, this data node can be manipulated to prevent access of legitimate ALTO clients.<a href="#section-8-4.4.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-8-4.5">'/alto/alto-server/role':</dt>
+<dt id="section-8-4.5">"/alto/alto-server/role":</dt>
         <dd style="margin-left: 1.5em" id="section-8-4.6">
           <p id="section-8-4.6.1">This list specifies roles which authenticated ALTO clients were assigned to for
   access control. Unauthorized write access to this list allow intruders to
@@ -4364,7 +4364,7 @@ sensitive or vulnerable in some network environments. It is thus important to
 control read access (e.g., via get, get-config, or notification) to these data
 nodes. These are the subtrees and data nodes and their sensitivity/vulnerability:<a href="#section-8-5" class="pilcrow">¶</a></p>
 <span class="break"></span><dl class="dlParallel" id="section-8-6">
-        <dt id="section-8-6.1">'/alto/alto-server/logging-system':</dt>
+        <dt id="section-8-6.1">"/alto/alto-server/logging-system":</dt>
         <dd style="margin-left: 1.5em" id="section-8-6.2">
           <p id="section-8-6.2.1">This subtree provides configuration to select a logging system to capture log
   messages generated by an ALTO server. Unauthorized read access of this node
@@ -4376,14 +4376,14 @@ nodes. These are the subtrees and data nodes and their sensitivity/vulnerability
 <p id="section-8-7">The "ietf-alto" supports an HTTP listen mode to cover cases where the ALTO
 server stack does not handle the TLS termination itself, but is handled by a
 separate component. Special care should be considered when such mode is
-enabled. Note that the default listen mode is 'https'.<a href="#section-8-7" class="pilcrow">¶</a></p>
+enabled. Note that the default listen mode is "https".<a href="#section-8-7" class="pilcrow">¶</a></p>
 <p id="section-8-8">Also, please be aware that these modules include choice nodes that can be augmented
 by other extended modules. The augmented data nodes may be considered sensitive
 or vulnerable in some network environments. For instance, an augmented case of
-the 'source-params' choice in 'data-source' may include authentication
+the "source-params" choice in "data-source" may include authentication
 information about how to access a data source including private network
-information. The 'yang-datastore' case in <a href="#example-data-source" class="auto internal xref">Appendix A.3</a> is such an
-example. The 'restconf' and 'netconf' nodes in it may reveal the access to a
+information. The "yang-datastore" case in <a href="#example-data-source" class="auto internal xref">Appendix A.3</a> is such an
+example. The "restconf" and "netconf" nodes in it may reveal the access to a
 private YANG datastore. Thus, those extended modules may have the NACM
 extension "default-deny-all" set.<a href="#section-8-8" class="pilcrow">¶</a></p>
 <p id="section-8-9">These modules use groupings defined in other RFCs that
@@ -4391,29 +4391,29 @@ define data nodes that do set the NACM "default-deny-all" and
 "default-deny-write" extensions. Specifically, the following data nodes
 reuse groupings with their security considerations:<a href="#section-8-9" class="pilcrow">¶</a></p>
 <span class="break"></span><dl class="dlParallel" id="section-8-10">
-        <dt id="section-8-10.1">'/alto/alto-server/listen/http/http-server-parameters':</dt>
+        <dt id="section-8-10.1">"/alto/alto-server/listen/http/http-server-parameters":</dt>
         <dd style="margin-left: 1.5em" id="section-8-10.2">
-          <p id="section-8-10.2.1">This subtree reuses the 'http-server-grouping' grouping defined in
+          <p id="section-8-10.2.1">This subtree reuses the "http-server-grouping" grouping defined in
   <span>[<a href="#I-D.ietf-netconf-http-client-server" class="cite xref">I-D.ietf-netconf-http-client-server</a>]</span>. The security considerations of
   <span>[<a href="#I-D.ietf-netconf-http-client-server" class="cite xref">I-D.ietf-netconf-http-client-server</a>]</span> have been applied to it.
-  Specifically, the 'server-name' and 'client-authentication' nodes in it
+  Specifically, the "server-name" and "client-authentication" nodes in it
   may be considered sensitive or vulnerable. For this reason, the NACM
   extension "default-deny-write" has been applied to them.<a href="#section-8-10.2.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-8-10.3">'/alto/alto-server/listen/https/http-server-parameters':</dt>
+<dt id="section-8-10.3">"/alto/alto-server/listen/https/http-server-parameters":</dt>
         <dd style="margin-left: 1.5em" id="section-8-10.4">
-          <p id="section-8-10.4.1">This subtree reuses the 'http-server-grouping' grouping defined in
+          <p id="section-8-10.4.1">This subtree reuses the "http-server-grouping" grouping defined in
   <span>[<a href="#I-D.ietf-netconf-http-client-server" class="cite xref">I-D.ietf-netconf-http-client-server</a>]</span>. The security considerations of
   <span>[<a href="#I-D.ietf-netconf-http-client-server" class="cite xref">I-D.ietf-netconf-http-client-server</a>]</span> have been applied to it.
-  Specifically, the 'server-name'and 'client-authentication' nodes in it
+  Specifically, the "server-name"and "client-authentication" nodes in it
   may be considered sensitive or vulnerable. For this reason, the NACM
   extension "default-deny-write" has been applied to them.<a href="#section-8-10.4.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-8-10.5">'/alto/alto-server/listen/https/tls-server-parameters':</dt>
+<dt id="section-8-10.5">"/alto/alto-server/listen/https/tls-server-parameters":</dt>
         <dd style="margin-left: 1.5em" id="section-8-10.6">
-          <p id="section-8-10.6.1">This subtree reuses the 'tls-server-grouping' grouping defined in
+          <p id="section-8-10.6.1">This subtree reuses the "tls-server-grouping" grouping defined in
   <span>[<a href="#RFC9645" class="cite xref">RFC9645</a>]</span>. The security considerations of
   <span>[<a href="#RFC9645" class="cite xref">RFC9645</a>]</span> have been applied to it.
   Specifically, all the "key" and "private-key" data nodes in it have the

@@ -364,16 +364,16 @@ Table of Contents
    The "ietf-alto" module is designed to fit all the requirements listed
    in Section 4.
 
-   As shown in Figure 1, the top-level container 'alto' in the "ietf-
-   alto" module contains a single 'alto-server' and a list 'alto-
-   client'.
+   As shown in Figure 1, the top-level container "alto" in the "ietf-
+   alto" module contains a list "alto-client" and a single "alto-server"
+   container.
 
-   'alto-client' defines a list of configurations for other applications
-   to bootstrap an ALTO client.  These data nodes can also be used by
-   data sources and information resource creation algorithms that are
-   configured by an ALTO server instance.
+   The "alto-client" list defines a list of configurations for other
+   applications to bootstrap an ALTO client.  These data nodes can also
+   be used by data sources and information resource creation algorithms
+   that are configured by an ALTO server instance.
 
-   The container 'alto-server' contains both configuration and
+   The container "alto-server" contains both configuration and
    operational data of an administrated ALTO server instance.
 
             module: ietf-alto
@@ -396,14 +396,14 @@ Table of Contents
 
 5.2.  Data Model for ALTO Client Operation and Management
 
-   As shown in Figure 2, the 'alto-client' contains a list of client-
-   side configurations.  Each 'alto-client' entry contains the following
+   As shown in Figure 2, the "alto-client" contains a list of client-
+   side configurations.  Each "alto-client" entry contains the following
    data nodes:
 
-   'client-id':  A unique identifier that can be referenced by other
+   "client-id":  A unique identifier that can be referenced by other
       applications.
 
-   'server-discovery-client':  A container that is used to configure how
+   "server-discovery-client":  A container that is used to configure how
       this ALTO client discovers an ALTO server.
 
             module: ietf-alto
@@ -456,7 +456,7 @@ Table of Contents
 
 5.3.1.1.  ALTO Server Listen Stack
 
-   The container 'listen' contains all the data nodes for the whole
+   The container "listen" contains all the data nodes for the whole
    server listen stack across TCP, TLS, HTTP and application layers
    (Figure 4).
 
@@ -485,15 +485,15 @@ Table of Contents
 
                Figure 4: IETF ALTO Server Groupings Structure
 
-   The 'transport' choice node enables which protocol layers to be
+   The "transport" choice node enables which protocol layers to be
    configured.  By default, two cases are defined for different
    deployment scenarios:
 
-   *  The 'http' case is provided to support scenarios where the TLS-
+   *  The "http" case is provided to support scenarios where the TLS-
       termination is handled by other external components, e.g., reverse
       proxies or ingress controllers.
 
-   *  The 'https' case is provided to support scenarios where the whole
+   *  The "https" case is provided to support scenarios where the whole
       HTTPS server listen stack including TLS is handled by the ALTO
       server itself.
 
@@ -520,19 +520,19 @@ Table of Contents
 
           Figure 5: IETF ALTO Server Discovery Grouping Structure
 
-   The 'server-discovery' node provides configuration for the discovery
+   The "server-discovery" node provides configuration for the discovery
    of ALTO servers using a variety of mechanisms.  The initial version
-   of the "ietf-alto" module only defines the 'reverse-dns' case that is
+   of the "ietf-alto" module only defines the "reverse-dns" case that is
    used to configure DNS NAPTR records for ALTO server discovery as
    suggested by [RFC7286] and [RFC8686].  It configures a set of
    endpoints that can be served by this ALTO server.  The node contains
-   two leaf lists.  The 'static' list contains a list of manually
-   configured endpoints.  The 'dynamic' list points to a list of data
+   two leaf lists.  The "static" list contains a list of manually
+   configured endpoints.  The "dynamic" list points to a list of data
    sources to retrieve the endpoints dynamically.  As suggested by
    [RFC7286] and [RFC8686], the IP prefixes of the endpoints configured
-   by both 'static' and 'dynamic' lists will be translated into DNS
-   NAPTR resource records for server discovery.  The 'server-discovery-
-   manner' choice can be augmented by the future modules to support
+   by both "static" and "dynamic" lists will be translated into DNS
+   NAPTR resource records for server discovery.  The "server-discovery-
+   manner" choice can be augmented by the future modules to support
    other mechanisms.
 
 5.3.2.  Data Model for Logging Management
@@ -540,11 +540,11 @@ Table of Contents
    To satisfy R2 in Section 4.2, the ALTO server instance contains the
    the logging data nodes shown in Figure 6.
 
-   The 'logging-system' data node provides configuration to select a
+   The "logging-system" data node provides configuration to select a
    logging system to capture log messages generated by an ALTO server.
 
-   By default, 'syslog' is the only supported logging system.  When
-   selecting 'syslog', the related configuration is delegated to the
+   By default, "syslog" is the only supported logging system.  When
+   selecting "syslog", the related configuration is delegated to the
    configuration file of the syslog [RFC5424] server.
 
                    grouping alto-logging-system:
@@ -555,7 +555,7 @@ Table of Contents
 
            Figure 6: IETF ALTO Logging System Grouping Structure
 
-   A specific server implementation can extend the 'logging-system' node
+   A specific server implementation can extend the "logging-system" node
    to add other logging systems.
 
 5.3.3.  Data Model for ALTO-related Management
@@ -563,10 +563,10 @@ Table of Contents
    To satisfy R3 in Section 4.2, the data model contains the following
    ALTO-related management information (Figure 3):
 
-   *  The 'cost-type' list is the registry for the cost types that can
+   *  The "cost-type" list is the registry for the cost types that can
       be used in the ALTO server.
 
-   *  The 'meta' list contains the customized meta data of the ALTO
+   *  The "meta" list contains the customized meta data of the ALTO
       server.  It is populated into the meta field of the default
       Information Resource Directory (IRD).
 
@@ -581,7 +581,7 @@ Table of Contents
 5.4.1.  Data Source Configuration Management
 
    To satisfy R5-1 in Section 4.2, the ALTO server instance contains a
-   list of 'data-source' entries to subscribe the data sources from
+   list of "data-source" entries to subscribe the data sources from
    which ALTO information resources are derived (Section 16.2.4 of
    [RFC7285]).
 
@@ -598,17 +598,17 @@ Table of Contents
 
           Figure 7: IETF ALTO Server Data Source Subtree Structure
 
-   As shown in Figure 7, a 'data-source' list entry includes:
+   As shown in Figure 7, a "data-source" list entry includes:
 
-   *  A unique 'source-id' for resource creation algorithms to
+   *  A unique "source-id" for resource creation algorithms to
       reference.
 
-   *  The 'source-type' attribute to declare the type of the data
+   *  The "source-type" attribute to declare the type of the data
       source.
 
-   *  The 'source-params' to specify where and how to query the data.
+   *  The "source-params" to specify where and how to query the data.
 
-   The 'data-source/source-params' node can be augmented for different
+   The "data-source/source-params" node can be augmented for different
    types of data sources.  Note that the purpose of this node is not to
    fully set up the communication mechanisms for specific data sources,
    but to maintain how data sources are configured and expose them to
@@ -622,19 +622,19 @@ Table of Contents
 5.4.2.  ALTO Information Resources Configuration Management
 
    To satisfy R5-2 and R-3 in Section 4.2, the ALTO server instance
-   contains a list of 'resource' entries (Figure 8).  Each 'resource'
+   contains a list of "resource" entries (Figure 8).  Each "resource"
    entry contains the data nodes of an ALTO information resource (See
    Section 8.1 of [RFC7285]).  The operator of the ALTO server can use
    this model to create, update, and remove the ALTO information
    resources.
 
-   Each 'resource' entry provides data nodes defining how to create or
-   update an ALTO information resource.  Adding a new 'resource' entry
+   Each "resource" entry provides data nodes defining how to create or
+   update an ALTO information resource.  Adding a new "resource" entry
    notifies the ALTO server to create a new ALTO information resource.
-   Updating an existing 'resource' entry notifies the ALTO server to
+   Updating an existing "resource" entry notifies the ALTO server to
    update the generation parameters (e.g., capabilities and the creation
    algorithm) of an existing ALTO information resource.  Removing an
-   existing 'resource' entry will remove the corresponding ALTO
+   existing "resource" entry will remove the corresponding ALTO
    information resource.
 
      module: ietf-alto
@@ -695,19 +695,19 @@ Table of Contents
 
                Figure 8: IETF ALTO Resource Subtree Structure
 
-   A 'resource' list entry MUST include a unique 'resource-id' and a
-   'resource-type'.
+   A "resource" list entry MUST include a unique "resource-id" and a
+   "resource-type".
 
-   It may also include an 'accepted-role' node containing a list of
-   'role-name's that is used by role-based access control for this ALTO
+   It may also include an "accepted-role" node containing a list of
+   "role-name"s that is used by role-based access control for this ALTO
    information resource.  See Section 5.4.3 for details of information
    resource access control.
 
-   For some 'resource-type', the 'resource' entry may also include a
-   'dependency' node containing the 'resource-id' of the dependent ALTO
+   For some "resource-type", the "resource" entry may also include a
+   "dependency" node containing the "resource-id" of the dependent ALTO
    information resources (Section 9.1.5 of [RFC7285]).
 
-   For each type of ALTO information resource, the 'resource' entry may
+   For each type of ALTO information resource, the "resource" entry may
    also need type-specific parameters.  These type-specific parameters
    can be split into two categories:
 
@@ -718,23 +718,23 @@ Table of Contents
 
    2.  The other category of the type-specific parameters is algorithm-
        specific.  The developer of the ALTO server can implement their
-       own creation algorithms and augment the 'algorithm' node to
+       own creation algorithms and augment the "algorithm" node to
        declare algorithm-specific input parameters.
 
-   Except for the 'ird' resource, all the other types of 'resource'
-   entries have an augmented 'algorithm' node.  The augmented
-   'algorithm' node can reference data sources subscribed by the 'data-
-   source' entries (See Section 5.4.1).  An example of extending the
-   'algorithm' node for a specific type of 'resource' is included in
+   Except for the "ird" resource, all the other types of "resource"
+   entries have an augmented "algorithm" node.  The augmented
+   "algorithm" node can reference data sources subscribed by the "data-
+   source" entries (See Section 5.4.1).  An example of extending the
+   "algorithm" node for a specific type of "resource" is included in
    Appendix A.4.
 
    The developer does not have to customize the creation algorithm of
-   the 'ird' resource.  The default 'ird' resource will be created
-   automatically based on all the added 'resource' entries.  The
-   delegated 'ird' resource will be created as a static ALTO information
+   the "ird" resource.  The default "ird" resource will be created
+   automatically based on all the added "resource" entries.  The
+   delegated "ird" resource will be created as a static ALTO information
    resource (Section 9.2.4 of [RFC7285]).
 
-   Each 'resource' entry may also set thresholds of memory usage and
+   Each "resource" entry may also set thresholds of memory usage and
    active update streams (if "incr-update" feature is enabled).  Table 3
    describes limits that, once exceeded, will trigger notifications to
    be generated:
@@ -808,17 +808,17 @@ Table of Contents
    The structure shown in Figure 9 can be used to configure the role-
    based access control:
 
-   *  'auth-client' declares a list of ALTO clients that can be
+   *  "auth-client" declares a list of ALTO clients that can be
       authenticated by the internal or external authorization server.
       This basic model only includes authentication approach directly
       provided by the HTTP or TLS server, but the operators or future
-      documents can augment the 'authentication' choice for different
+      documents can augment the "authentication" choice for different
       authentication mechanisms.
 
-   *  'role' defines a list of roles for access control.  Each role
+   *  "role" defines a list of roles for access control.  Each role
       contains a list of authenticated ALTO clients.  Each client can be
-      assigned to multiple roles.  The 'role-name' can be referenced by
-      the 'accepted-role' list of a 'resource'.  If an authenticated
+      assigned to multiple roles.  The "role-name" can be referenced by
+      the "accepted-role" list of a "resource".  If an authenticated
       ALTO client is included in any roles with access permission to a
       resource, the client is granted access to that resource.
 
@@ -893,8 +893,8 @@ Table of Contents
    To satisfy R6 in Section 4.2, the "ietf-alto-stats" module contains
    statistics that indicate server failures (Figure 10).
 
-   More specifically, 'num-total-*' and 'num-total-last-*' provide
-   server-level failure counters; 'num-res-*' and 'num-res-last-*'
+   More specifically, "num-total-*" and "num-total-last-*" provide
+   server-level failure counters; "num-res-*" and "num-res-last-*"
    provide information resource-level failure counters.
 
 6.2.  Model for ALTO-specific Performance Monitoring
@@ -921,10 +921,10 @@ Table of Contents
    [RFC7971], the "ietf-alto-stats" module also contains useful
    measurement information for other ALTO extensions:
 
-   *  'num-map-entry' and 'num-base-obj' provide measurement for number
+   *  "num-map-entry" and "num-base-obj" provide measurement for number
       of generic ALTO entities (for [RFC9240] and [RFC9241])
 
-   *  'num-upd-stream' and 'num-upd-msg-*' provide statistics for update
+   *  "num-upd-stream" and "num-upd-msg-*" provide statistics for update
       streams and messages (for [RFC8189])
 
    The "ietf-alto-stats" module only focuses on the performance metrics
@@ -2833,15 +2833,15 @@ Table of Contents
    operations.  These are the subtrees and data nodes and their
    sensitivity/ vulnerability:
 
-   '/alto/alto-client/server-discovery':  This subtree specifies a set
+   "/alto/alto-client/server-discovery":  This subtree specifies a set
       of parameters for an ALTO client to discover ALTO servers.
       Unauthorized access to it could cause intruders to modify the ALTO
-      discovery parameters (e.g., 'dns-server') in order to expose an
+      discovery parameters (e.g., "dns-server") in order to expose an
       ALTO client to fake ALTO servers.  Likewise, this data node can be
       manipulated to prevent an ALTO client from discovering a reachable
       ALTO server.
 
-   '/alto/alto-server/auth-client':  This list specifies all the
+   "/alto/alto-server/auth-client":  This list specifies all the
       authenticated ALTO clients on an ALTO server.  Unauthorized write
       access to this list can allow intruders to modify the entries so
       as to add a client that have not been authenticated yet or delete
@@ -2849,7 +2849,7 @@ Table of Contents
       node can be manipulated to prevent access of legitimate ALTO
       clients.
 
-   '/alto/alto-server/role':  This list specifies roles which
+   "/alto/alto-server/role":  This list specifies roles which
       authenticated ALTO clients were assigned to for access control.
       Unauthorized write access to this list allow intruders to modify
       the entries so as to permit access that should not be permitted,
@@ -2861,7 +2861,7 @@ Table of Contents
    or notification) to these data nodes.  These are the subtrees and
    data nodes and their sensitivity/vulnerability:
 
-   '/alto/alto-server/logging-system':  This subtree provides
+   "/alto/alto-server/logging-system":  This subtree provides
       configuration to select a logging system to capture log messages
       generated by an ALTO server.  Unauthorized read access of this
       node can allow intruders to access logging information, which
@@ -2871,16 +2871,16 @@ Table of Contents
    ALTO server stack does not handle the TLS termination itself, but is
    handled by a separate component.  Special care should be considered
    when such mode is enabled.  Note that the default listen mode is
-   'https'.
+   "https".
 
    Also, please be aware that these modules include choice nodes that
    can be augmented by other extended modules.  The augmented data nodes
    may be considered sensitive or vulnerable in some network
-   environments.  For instance, an augmented case of the 'source-params'
-   choice in 'data-source' may include authentication information about
+   environments.  For instance, an augmented case of the "source-params"
+   choice in "data-source" may include authentication information about
    how to access a data source including private network information.
-   The 'yang-datastore' case in Appendix A.3 is such an example.  The
-   'restconf' and 'netconf' nodes in it may reveal the access to a
+   The "yang-datastore" case in Appendix A.3 is such an example.  The
+   "restconf" and "netconf" nodes in it may reveal the access to a
    private YANG datastore.  Thus, those extended modules may have the
    NACM extension "default-deny-all" set.
 
@@ -2889,26 +2889,26 @@ Table of Contents
    write" extensions.  Specifically, the following data nodes reuse
    groupings with their security considerations:
 
-   '/alto/alto-server/listen/http/http-server-parameters':  This subtree
-      reuses the 'http-server-grouping' grouping defined in
+   "/alto/alto-server/listen/http/http-server-parameters":  This subtree
+      reuses the "http-server-grouping" grouping defined in
       [I-D.ietf-netconf-http-client-server].  The security
       considerations of [I-D.ietf-netconf-http-client-server] have been
-      applied to it.  Specifically, the 'server-name' and 'client-
-      authentication' nodes in it may be considered sensitive or
+      applied to it.  Specifically, the "server-name" and "client-
+      authentication" nodes in it may be considered sensitive or
       vulnerable.  For this reason, the NACM extension "default-deny-
       write" has been applied to them.
 
-   '/alto/alto-server/listen/https/http-server-parameters':  This
-      subtree reuses the 'http-server-grouping' grouping defined in
+   "/alto/alto-server/listen/https/http-server-parameters":  This
+      subtree reuses the "http-server-grouping" grouping defined in
       [I-D.ietf-netconf-http-client-server].  The security
       considerations of [I-D.ietf-netconf-http-client-server] have been
-      applied to it.  Specifically, the 'server-name'and 'client-
-      authentication' nodes in it may be considered sensitive or
+      applied to it.  Specifically, the "server-name"and "client-
+      authentication" nodes in it may be considered sensitive or
       vulnerable.  For this reason, the NACM extension "default-deny-
       write" has been applied to them.
 
-   '/alto/alto-server/listen/https/tls-server-parameters':  This subtree
-      reuses the 'tls-server-grouping' grouping defined in [RFC9645].
+   "/alto/alto-server/listen/https/tls-server-parameters":  This subtree
+      reuses the "tls-server-grouping" grouping defined in [RFC9645].
       The security considerations of [RFC9645] have been applied to it.
       Specifically, all the "key" and "private-key" data nodes in it
       have the NACM extension "default-deny-all" set, thus preventing
