@@ -4,7 +4,11 @@
       "listen": {
         "https": {
           "tcp-server-parameters": {
-            "local-address": "0.0.0.0"
+            "local-bind": [
+              {
+                "local-address": "0.0.0.0"
+              }
+            ]
           },
           "alto-server-parameters": {},
           "http-server-parameters": {
@@ -15,8 +19,10 @@
                   {
                     "user-id": "alice",
                     "basic": {
-                      "user-id": "alice",
-                      "password": "$0$p8ssw0rd"
+                      "username": "alice",
+                      "password": {
+                        "hashed-password": "$0$p8ssw0rd"
+                      }
                     }
                   }
                 ]
@@ -24,7 +30,13 @@
             }
           },
           "tls-server-parameters": {
-            "server-identity": {}
+            "server-identity": {
+              "raw-private-key": {
+                "inline-definition": {
+                  "hidden-private-key": [null]
+                }
+              }
+            }
           }
         }
       },
@@ -72,24 +84,52 @@
               "protocol": "restconf",
               "restconf": {
                 "listen": {
-                  "endpoint": [
-                    {
-                      "name": "example restconf server",
-                      "https": {
-                        "tcp-server-parameters": {
-                          "local-address": "192.0.2.2"
-                        },
-                        "http-client-parameters": {
-                          "client-identity": {
-                            "basic": {
-                              "user-id": "carol",
-                              "cleartext-password": "secret"
+                  "endpoints": {
+                    "endpoint": [
+                      {
+                        "name": "example restconf server",
+                        "tcp": {
+                          "tcp-server-parameters": {
+                            "local-bind": [
+                              {
+                                "local-address": "192.0.2.2"
+                              }
+                            ]
+                          },
+                          "http-client-parameters": {
+                            "uri": {
+                              "scheme": "https",
+                              "authority": {
+                                "host": "192.0.2.2"
+                              }
+                            },
+                            "tls-client-parameters": {
+                              "client-identity": {
+                                "raw-private-key": {
+                                  "inline-definition": {
+                                    "hidden-private-key": [null]
+                                  }
+                                }
+                              },
+                              "server-authentication": {
+                                "raw-public-keys": {
+                                  "inline-definition": {
+                                    "public-key": [
+                                      {
+                                        "name": "alto-pubkey",
+                                        "public-key-format": "ietf-crypto-types:subject-public-key-info-format",
+                                        "public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsmEuE0u2Q7QB/sOOF8vf+f2jw5rNpQt+sWsN9gpOreaOMyAAYyytMF13PZYADO50j3G0eqljx8R//ZUc+G0PN4fpOLDpj4lC5vBb9pnQ8EpqOLJGMe3+73fVG2wfZOZi408GQfxrnJjVKUiBqyu1MGPW60NjZYvomSuU754JwxZcgWymwHMOtRoDKglYTFY2R5Pnq1XKxx8+3BF/PiCZ5dBDFap6oXVEwvwqspQjy4MS7u/hU1Q1sQkvxMM+HE6svGfndT9vu5SRhQeYxHQrC5C5rbsyWyg8nVdugmyJDQIYK0pZVTtpi8ucvU4JEtjfc/hpxFz28FFszwqg3m71lwIDAQAB"
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
                             }
                           }
                         }
                       }
-                    }
-                  ]
+                    ]
+                  }
                 }
               }
             }
