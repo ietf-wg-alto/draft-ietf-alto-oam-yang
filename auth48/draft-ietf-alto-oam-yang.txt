@@ -5,14 +5,14 @@
 ALTO WG                                                         J. Zhang
 Internet-Draft                                         Tongji University
 Intended status: Standards Track                                D. Dhody
-Expires: 3 August 2026                               Huawei Technologies
+Expires: 6 August 2026                               Huawei Technologies
                                                                   K. Gao
                                                       Sichuan University
                                                                R. Schott
                                                         Deutsche Telekom
                                                                    Q. Ma
                                                                   Huawei
-                                                         30 January 2026
+                                                         2 February 2026
 
 
  YANG Data Models for the Application-Layer Traffic Optimization (ALTO)
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 August 2026.
+   This Internet-Draft will expire on 6 August 2026.
 
 Copyright Notice
 
@@ -410,9 +410,9 @@ Table of Contents
               +--rw alto!
                  +--rw alto-client* [client-id] {alto-client}?
                  |  +--rw client-id                  string
-                 |  +--rw server-discovery-client
+                 |  +--rw server-discovery
                  |     +---u alto-server-discovery-client
-                 ...
+                  ...
 
                 Figure 2: IETF ALTO Client Subtree Structure
 
@@ -512,7 +512,7 @@ Table of Contents
    multi-domain scenarios.
 
            grouping alto-server-discovery:
-             +-- (server-discovery-manner)?
+             +-- (method)?
                 +--:(reverse-dns) {xdom-disc}?
                    +-- rdns-naptr-records
                       +-- static-prefix*           inet:ip-prefix
@@ -1549,7 +1549,7 @@ Table of Contents
             + "/alto:name";
        }
        description
-         "Type to reference a raw pubic key.";
+         "Type to reference a raw public key.";
      }
 
      typedef resource-ref {
@@ -1769,7 +1769,7 @@ Table of Contents
      grouping alto-server-discovery {
        description
          "Grouping for the configuration of how to set up server
-          discovery for clients or other ALTO servers to discovery the
+          discovery for clients or other ALTO servers to discover the
           URI of this ALTO server.";
        choice method {
          description
@@ -2019,7 +2019,7 @@ Table of Contents
            leaf description {
              type string;
              description
-               "A human-readable description fo the 'cost-mode' and
+               "A human-readable description for the 'cost-mode' and
                 'cost-metric'.";
            }
            container cost-context {
@@ -2117,7 +2117,7 @@ Table of Contents
                container tls-auth-client {
                  if-feature "tls:client-auth-supported";
                  description
-                   "Parameters to identify na authenticated TLS
+                   "Parameters to identify an authenticated TLS
                     client.";
                  container ca-cert {
                    if-feature "tls:client-auth-x509-cert";
@@ -2144,7 +2144,7 @@ Table of Contents
                    if-feature "tls:client-auth-tls12-psk";
                    type empty;
                    description
-                     "Identicate that the client is authenticated by
+                     "Indicates that the client is authenticated by
                       the TLS server using the configured PSKs
                       (pre-shared or pairwise-symmetric keys).";
                  }
@@ -2152,7 +2152,7 @@ Table of Contents
                    if-feature "tls:client-auth-tls13-epsk";
                    type empty;
                    description
-                     "Identicate that the client is authenticated by
+                     "Indicates that the client is authenticated by
                       the TLS 1.3 server using the configured external
                       PSKs (pre-shared keys).";
                  }
@@ -2952,9 +2952,9 @@ Table of Contents
    [I-D.ietf-netconf-http-client-server]
               Watsen, K., "YANG Groupings for HTTP Clients and HTTP
               Servers", Work in Progress, Internet-Draft, draft-ietf-
-              netconf-http-client-server-31, 26 January 2026,
+              netconf-http-client-server-32, 30 January 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
-              http-client-server-31>.
+              http-client-server-32>.
 
    [I-D.ietf-netconf-netconf-client-server]
               Watsen, K., "A YANG Data Model for NETCONF Clients and
