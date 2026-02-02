@@ -52,15 +52,15 @@ module: ietf-alto
   +--rw alto!
      +--rw alto-client* [client-id] {alto-client}?
      |  +--rw client-id                  string
-     |  +--rw server-discovery-client
+     |  +--rw server-discovery
      |     +---u alto-server-discovery-client
-     ...
+      ...
 ~~~
 {: #tree-alto-client title='IETF ALTO Client Subtree Structure' artwork-align="center"}
 
 ## Data Model for Server-level Operation and Management
 
-The ALTO server instance contains a set of data nodes for server-level operation and management for ALTO that are shown in {{tree-alto-server-level}}. This structure  satisfies R1 - R4 in [](#requirements).
+The ALTO server instance contains a set of data nodes for server-level operation and management for ALTO that are shown in {{tree-alto-server-level}}. This structure satisfies R1 - R4 in [](#requirements).
 
 ~~~
 module: ietf-alto
@@ -149,7 +149,7 @@ documents may extend it to fully support multi-domain scenarios.
 
 ~~~
   grouping alto-server-discovery:
-    +-- (server-discovery-manner)?
+    +-- (method)?
        +--:(reverse-dns) {xdom-disc}?
           +-- rdns-naptr-records
              +-- static-prefix*           inet:ip-prefix
