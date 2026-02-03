@@ -20,23 +20,22 @@ information resource, and (5) collect statistical data from the ALTO server. The
 application provider can also use this data model to configure ALTO clients
 to communicate with known ALTO servers. 
     " name="description">
-<meta content="xml2rfc 3.27.0" name="generator">
+<meta content="xml2rfc 3.31.0" name="generator">
 <meta content="Automation, Service Provisioning, Control, Operation" name="keyword">
 <meta content="draft-ietf-alto-oam-yang-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.27.0
-    Python 3.12.9
+  xml2rfc 3.31.0
+    Python 3.12.12
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
-    intervaltree 3.1.0
-    Jinja2 3.1.5
-    lxml 5.3.0
-    platformdirs 4.3.6
+    intervaltree 3.2.1
+    Jinja2 3.1.6
+    lxml 6.0.2
+    platformdirs 4.5.1
     pycountry 24.6.1
-    PyYAML 6.0.2
-    requests 2.32.3
-    setuptools 70.3.0
-    wcwidth 0.2.13
+    PyYAML 6.0.3
+    requests 2.32.5
+    wcwidth 0.3.0
 -->
 <link href="draft-ietf-alto-oam-yang.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -577,6 +576,7 @@ aside, blockquote {
 }
 blockquote {
   margin: 1em 0;
+  border-left: 2px var(--pilcrow-strong) solid;
 }
 cite {
   display: block;
@@ -647,7 +647,7 @@ a.pilcrow {
   }
 }
 @media not print {
-  :hover > a.pilcrow {
+  :hover > a.pilcrow, a.pilcrow:focus {
     opacity: 1;
   }
   a.pilcrow[href]:hover {
@@ -1055,11 +1055,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">ALTO O&amp;M YANG</td>
-<td class="right">February 2025</td>
+<td class="right">February 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Zhang, et al.</td>
-<td class="center">Expires 24 August 2025</td>
+<td class="center">Expires 7 August 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1072,12 +1072,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-alto-oam-yang-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-02-20" class="published">20 February 2025</time>
+<time datetime="2026-02-03" class="published">3 February 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-08-24">24 August 2025</time></dd>
+<dd class="expires"><time datetime="2026-08-07">7 August 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1086,7 +1086,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </div>
 <div class="author">
       <div class="author-name">D. Dhody</div>
-<div class="org">Huawei Technologies</div>
+<div class="org">Huawei</div>
 </div>
 <div class="author">
       <div class="author-name">K. Gao</div>
@@ -1145,7 +1145,7 @@ to communicate with known ALTO servers.<a href="#section-abstract-1" class="pilc
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 24 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 7 August 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1154,7 +1154,7 @@ to communicate with known ALTO servers.<a href="#section-abstract-1" class="pilc
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2025 IETF Trust and the persons identified as the
+            Copyright (c) 2026 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -4484,15 +4484,15 @@ reuse groupings with their security considerations:<a href="#section-8-9" class=
 <dl class="references">
 <dt id="I-D.ietf-netconf-http-client-server">[I-D.ietf-netconf-http-client-server]</dt>
         <dd>
-<span class="refAuthor">Watsen, K.</span>, <span class="refTitle">"YANG Groupings for HTTP Clients and HTTP Servers"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-netconf-http-client-server-25</span>, <time datetime="2025-02-12" class="refDate">12 February 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-netconf-http-client-server-25">https://datatracker.ietf.org/doc/html/draft-ietf-netconf-http-client-server-25</a>&gt;</span>. </dd>
+<span class="refAuthor">Watsen, K.</span>, <span class="refTitle">"YANG Groupings for HTTP Clients and HTTP Servers"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-netconf-http-client-server-32</span>, <time datetime="2026-01-30" class="refDate">30 January 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-netconf-http-client-server-32">https://datatracker.ietf.org/doc/html/draft-ietf-netconf-http-client-server-32</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-netconf-netconf-client-server">[I-D.ietf-netconf-netconf-client-server]</dt>
         <dd>
-<span class="refAuthor">Watsen, K.</span>, <span class="refTitle">"NETCONF Client and Server Models"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-netconf-netconf-client-server-38</span>, <time datetime="2025-02-12" class="refDate">12 February 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-netconf-netconf-client-server-38">https://datatracker.ietf.org/doc/html/draft-ietf-netconf-netconf-client-server-38</a>&gt;</span>. </dd>
+<span class="refAuthor">Watsen, K.</span>, <span class="refTitle">"A YANG Data Model for NETCONF Clients and Servers"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-netconf-netconf-client-server-41</span>, <time datetime="2025-12-04" class="refDate">4 December 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-netconf-netconf-client-server-41">https://datatracker.ietf.org/doc/html/draft-ietf-netconf-netconf-client-server-41</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-netconf-restconf-client-server">[I-D.ietf-netconf-restconf-client-server]</dt>
         <dd>
-<span class="refAuthor">Watsen, K.</span>, <span class="refTitle">"RESTCONF Client and Server Models"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-netconf-restconf-client-server-40</span>, <time datetime="2025-02-12" class="refDate">12 February 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-netconf-restconf-client-server-40">https://datatracker.ietf.org/doc/html/draft-ietf-netconf-restconf-client-server-40</a>&gt;</span>. </dd>
+<span class="refAuthor">Watsen, K.</span>, <span class="refTitle">"A YANG Data Model for RESTCONF Clients and Servers"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-netconf-restconf-client-server-45</span>, <time datetime="2025-12-04" class="refDate">4 December 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-netconf-restconf-client-server-45">https://datatracker.ietf.org/doc/html/draft-ietf-netconf-restconf-client-server-45</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-netconf-tcp-client-server">[I-D.ietf-netconf-tcp-client-server]</dt>
         <dd>
@@ -5512,12 +5512,7 @@ dnsdir review, and Rich Salz for the secdir review.<a href="#appendix-C-2" class
 </address>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Dhruv Dhody</span></div>
-<div dir="auto" class="left"><span class="org">Huawei Technologies</span></div>
-<div dir="auto" class="left"><span class="street-address">Divyashree Techno Park, Whitefield</span></div>
-<div dir="auto" class="left">
-<span class="locality">Bangalore</span> <span class="postal-code">560066</span>
-</div>
-<div dir="auto" class="left"><span class="region">Karnataka</span></div>
+<div dir="auto" class="left"><span class="org">Huawei</span></div>
 <div dir="auto" class="left"><span class="country-name">India</span></div>
 <div class="email">
 <span>Email:</span>

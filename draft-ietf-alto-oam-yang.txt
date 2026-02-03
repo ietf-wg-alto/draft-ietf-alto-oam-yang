@@ -5,14 +5,14 @@
 ALTO WG                                                         J. Zhang
 Internet-Draft                                         Tongji University
 Intended status: Standards Track                                D. Dhody
-Expires: 24 August 2025                              Huawei Technologies
+Expires: 7 August 2026                                            Huawei
                                                                   K. Gao
                                                       Sichuan University
                                                                R. Schott
                                                         Deutsche Telekom
                                                                    Q. Ma
                                                                   Huawei
-                                                        20 February 2025
+                                                         3 February 2026
 
 
  YANG Data Models for the Application-Layer Traffic Optimization (ALTO)
@@ -57,11 +57,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 August 2025.
+   This Internet-Draft will expire on 7 August 2026.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -2962,23 +2962,23 @@ Table of Contents
    [I-D.ietf-netconf-http-client-server]
               Watsen, K., "YANG Groupings for HTTP Clients and HTTP
               Servers", Work in Progress, Internet-Draft, draft-ietf-
-              netconf-http-client-server-25, 12 February 2025,
+              netconf-http-client-server-32, 30 January 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
-              http-client-server-25>.
+              http-client-server-32>.
 
    [I-D.ietf-netconf-netconf-client-server]
-              Watsen, K., "NETCONF Client and Server Models", Work in
-              Progress, Internet-Draft, draft-ietf-netconf-netconf-
-              client-server-38, 12 February 2025,
+              Watsen, K., "A YANG Data Model for NETCONF Clients and
+              Servers", Work in Progress, Internet-Draft, draft-ietf-
+              netconf-netconf-client-server-41, 4 December 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
-              netconf-client-server-38>.
+              netconf-client-server-41>.
 
    [I-D.ietf-netconf-restconf-client-server]
-              Watsen, K., "RESTCONF Client and Server Models", Work in
-              Progress, Internet-Draft, draft-ietf-netconf-restconf-
-              client-server-40, 12 February 2025,
+              Watsen, K., "A YANG Data Model for RESTCONF Clients and
+              Servers", Work in Progress, Internet-Draft, draft-ietf-
+              netconf-restconf-client-server-45, 4 December 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
-              restconf-client-server-40>.
+              restconf-client-server-45>.
 
    [I-D.ietf-netconf-tcp-client-server]
               Watsen, K. and M. Scharf, "YANG Groupings for TCP Clients
@@ -3940,10 +3940,7 @@ Authors' Addresses
 
 
    Dhruv Dhody
-   Huawei Technologies
-   Divyashree Techno Park, Whitefield
-   Bangalore 560066
-   Karnataka
+   Huawei
    India
    Email: dhruv.ietf@gmail.com
 
