@@ -37,12 +37,8 @@ author:
  -
     ins: D. Dhody
     name: Dhruv Dhody
-    organization: Huawei Technologies
+    organization: Huawei 
     email: dhruv.ietf@gmail.com
-    street: Divyashree Techno Park, Whitefield
-    city: Bangalore
-    region: Karnataka
-    code: 560066
     country: India
  -
     ins: K. Gao
