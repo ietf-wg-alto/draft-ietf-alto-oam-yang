@@ -215,10 +215,10 @@ Table of Contents
     | Prefix | YANG       | Reference                                 |
     |        | module     |                                           |
     +========+============+===========================================+
-    | yang   | ietf-yang- | [RFC6991]                                 |
+    | yang   | ietf-yang- | [RFC9911]                                 |
     |        | types      |                                           |
     +--------+------------+-------------------------------------------+
-    | inet   | ietf-inet- | [RFC6991]                                 |
+    | inet   | ietf-inet- | [RFC9911]                                 |
     |        | types      |                                           |
     +--------+------------+-------------------------------------------+
     | ds     | ietf-      | [RFC8342]                                 |
@@ -949,7 +949,7 @@ Table of Contents
      import ietf-inet-types {
        prefix inet;
        reference
-         "RFC 6991: Common YANG Data Types, Section 4";
+         "RFC 9911: Common YANG Data Types, Section 4";
      }
      import ietf-truststore {
        prefix ts;
@@ -2418,7 +2418,7 @@ Table of Contents
      import ietf-yang-types {
        prefix yang;
        reference
-         "RFC 6991: Common YANG Data Types, Section 3";
+         "RFC 9911: Common YANG Data Types, Section 3";
      }
      import ietf-alto {
        prefix alto;
@@ -2998,10 +2998,6 @@ Table of Contents
               Shell (SSH)", RFC 6242, DOI 10.17487/RFC6242, June 2011,
               <https://www.rfc-editor.org/rfc/rfc6242>.
 
-   [RFC6991]  Schoenwaelder, J., Ed., "Common YANG Data Types",
-              RFC 6991, DOI 10.17487/RFC6991, July 2013,
-              <https://www.rfc-editor.org/rfc/rfc6991>.
-
    [RFC7285]  Alimi, R., Ed., Penno, R., Ed., Yang, Y., Ed., Kiesel, S.,
               Previdi, S., Roome, W., Shalunov, S., and R. Woundy,
               "Application-Layer Traffic Optimization (ALTO) Protocol",
@@ -3096,6 +3092,10 @@ Table of Contents
               Servers", RFC 9645, DOI 10.17487/RFC9645, October 2024,
               <https://www.rfc-editor.org/rfc/rfc9645>.
 
+   [RFC9911]  Schönwälder, J., Ed., "Common YANG Data Types", RFC 9911,
+              DOI 10.17487/RFC9911, December 2025,
+              <https://www.rfc-editor.org/rfc/rfc9911>.
+
 10.2.  Informative References
 
    [RFC6291]  Andersson, L., van Helvoort, H., Bonica, R., Romascanu,
@@ -3178,7 +3178,7 @@ A.1.  An Example Module for Extended Server Discovery Manners
      import ietf-inet-types {
        prefix inet;
        reference
-         "RFC 6991: Common YANG Data Types";
+         "RFC 9911: Common YANG Data Types";
      }
 
      organization
@@ -3300,7 +3300,7 @@ A.2.  An Example Module for Extended Client Authentication Approaches
      import ietf-inet-types {
        prefix inet;
        reference
-         "RFC 6991: Common YANG Data Types";
+         "RFC 9911: Common YANG Data Types";
      }
 
      import ietf-alto {

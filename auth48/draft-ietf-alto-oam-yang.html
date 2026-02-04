@@ -1484,14 +1484,14 @@ are shown in <a href="#tbl-yang-prefixes" class="auto internal xref">Table 1</a>
               <td class="text-left" rowspan="1" colspan="1">yang</td>
               <td class="text-left" rowspan="1" colspan="1">ietf-yang-types</td>
               <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC6991" class="cite xref">RFC6991</a>]</span>
+                <span>[<a href="#RFC9911" class="cite xref">RFC9911</a>]</span>
 </td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">inet</td>
               <td class="text-left" rowspan="1" colspan="1">ietf-inet-types</td>
               <td class="text-left" rowspan="1" colspan="1">
-                <span>[<a href="#RFC6991" class="cite xref">RFC6991</a>]</span>
+                <span>[<a href="#RFC9911" class="cite xref">RFC9911</a>]</span>
 </td>
             </tr>
             <tr>
@@ -2437,7 +2437,7 @@ module ietf-alto {
   import ietf-inet-types {
     prefix inet;
     reference
-      "RFC 6991: Common YANG Data Types, Section 4";
+      "RFC 9911: Common YANG Data Types, Section 4";
   }
   import ietf-truststore {
     prefix ts;
@@ -3914,7 +3914,7 @@ module ietf-alto-stats {
   import ietf-yang-types {
     prefix yang;
     reference
-      "RFC 6991: Common YANG Data Types, Section 3";
+      "RFC 9911: Common YANG Data Types, Section 3";
   }
   import ietf-alto {
     prefix alto;
@@ -4510,10 +4510,6 @@ reuse groupings with their security considerations:<a href="#section-8-9" class=
         <dd>
 <span class="refAuthor">Wasserman, M.</span>, <span class="refTitle">"Using the NETCONF Protocol over Secure Shell (SSH)"</span>, <span class="seriesInfo">RFC 6242</span>, <span class="seriesInfo">DOI 10.17487/RFC6242</span>, <time datetime="2011-06" class="refDate">June 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6242">https://www.rfc-editor.org/rfc/rfc6242</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC6991">[RFC6991]</dt>
-        <dd>
-<span class="refAuthor">Schoenwaelder, J., Ed.</span>, <span class="refTitle">"Common YANG Data Types"</span>, <span class="seriesInfo">RFC 6991</span>, <span class="seriesInfo">DOI 10.17487/RFC6991</span>, <time datetime="2013-07" class="refDate">July 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6991">https://www.rfc-editor.org/rfc/rfc6991</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="RFC7285">[RFC7285]</dt>
         <dd>
 <span class="refAuthor">Alimi, R., Ed.</span>, <span class="refAuthor">Penno, R., Ed.</span>, <span class="refAuthor">Yang, Y., Ed.</span>, <span class="refAuthor">Kiesel, S.</span>, <span class="refAuthor">Previdi, S.</span>, <span class="refAuthor">Roome, W.</span>, <span class="refAuthor">Shalunov, S.</span>, and <span class="refAuthor">R. Woundy</span>, <span class="refTitle">"Application-Layer Traffic Optimization (ALTO) Protocol"</span>, <span class="seriesInfo">RFC 7285</span>, <span class="seriesInfo">DOI 10.17487/RFC7285</span>, <time datetime="2014-09" class="refDate">September 2014</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7285">https://www.rfc-editor.org/rfc/rfc7285</a>&gt;</span>. </dd>
@@ -4587,8 +4583,12 @@ reuse groupings with their security considerations:<a href="#section-8-9" class=
 <span class="refAuthor">Watsen, K.</span> and <span class="refAuthor">M. Scharf</span>, <span class="refTitle">"YANG Groupings for TCP Clients and TCP Servers"</span>, <span class="seriesInfo">RFC 9643</span>, <span class="seriesInfo">DOI 10.17487/RFC9643</span>, <time datetime="2024-10" class="refDate">October 2024</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9643">https://www.rfc-editor.org/rfc/rfc9643</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC9645">[RFC9645]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Watsen, K.</span>, <span class="refTitle">"YANG Groupings for TLS Clients and TLS Servers"</span>, <span class="seriesInfo">RFC 9645</span>, <span class="seriesInfo">DOI 10.17487/RFC9645</span>, <time datetime="2024-10" class="refDate">October 2024</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9645">https://www.rfc-editor.org/rfc/rfc9645</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9911">[RFC9911]</dt>
+      <dd>
+<span class="refAuthor">Schönwälder, J., Ed.</span>, <span class="refTitle">"Common YANG Data Types"</span>, <span class="seriesInfo">RFC 9911</span>, <span class="seriesInfo">DOI 10.17487/RFC9911</span>, <time datetime="2025-12" class="refDate">December 2025</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9911">https://www.rfc-editor.org/rfc/rfc9911</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -4684,7 +4684,7 @@ module example-alto-server-discovery {
   import ietf-inet-types {
     prefix inet;
     reference
-      "RFC 6991: Common YANG Data Types";
+      "RFC 9911: Common YANG Data Types";
   }
 
   organization
@@ -4811,7 +4811,7 @@ module example-alto-auth {
   import ietf-inet-types {
     prefix inet;
     reference
-      "RFC 6991: Common YANG Data Types";
+      "RFC 9911: Common YANG Data Types";
   }
 
   import ietf-alto {
