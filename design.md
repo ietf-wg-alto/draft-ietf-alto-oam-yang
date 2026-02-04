@@ -339,7 +339,7 @@ For each type of ALTO information resource, the "resource" entry may also need
 type-specific parameters. These type-specific parameters can be split into two categories:
 
 1. One category of the type-specific parameters is common for the same type
-   of ALTO information resource. They declare the Capabilities of the ALTO
+   of ALTO information resource. They declare the Capabilities attribute of the ALTO
    information resource (Section 9.1.3 of {{RFC7285}}).
 2. The other category of the type-specific parameters is algorithm-specific.
    The developer of the ALTO server can implement their own creation algorithms
@@ -508,7 +508,7 @@ resource-level failure counters.
 
 ## Model for ALTO-specific Performance Monitoring
 
-To satisfy R7 in [](#requirements),the "ietf-alto-stats" module also contains statistics for ALTO-specific performance metrics ({{tree-stat}}).
+To satisfy R7 in [](#requirements), the "ietf-alto-stats" module also contains statistics for ALTO-specific performance metrics ({{tree-stat}}).
 
 More specifically, this data model contains the following measurement
 information of "system and service performance" suggested by {{RFC7285}} and

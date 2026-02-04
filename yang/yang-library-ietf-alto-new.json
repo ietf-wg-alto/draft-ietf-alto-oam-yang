@@ -7,7 +7,7 @@
                     {
                         "name": "ietf-alto",
                         "namespace": "urn:ietf:params:xml:ns:yang:ietf-alto",
-                        "revision": "2026-01-26",
+                        "revision": "2026-02-04",
                         "feature": [
                             "alto-server"
                         ]
@@ -15,27 +15,27 @@
                     {
                         "name": "ietf-alto-stats",
                         "namespace": "urn:ietf:params:xml:ns:yang:ietf-alto-stats",
-                        "revision": "2026-01-26"
+                        "revision": "2026-02-04"
                     },
                     {
                         "name": "example-alto-server-discovery",
                         "namespace": "https://example.com/ns/example-alto-server-discovery",
-                        "revision": "2026-01-26"
+                        "revision": "2026-02-04"
                     },
                     {
                         "name": "example-alto-auth",
                         "namespace": "https://example.com/ns/example-alto-auth",
-                        "revision": "2026-01-26"
+                        "revision": "2026-02-04"
                     },
                     {
                         "name": "example-alto-data-source",
                         "namespace": "https://example.com/ns/example-alto-data-source",
-                        "revision": "2026-01-26"
+                        "revision": "2026-02-04"
                     },
                     {
                         "name": "example-alto-alg",
                         "namespace": "https://example.com/ns/example-alto-alg",
-                        "revision": "2026-01-26"
+                        "revision": "2026-02-04"
                     },
                     {
                         "name": "ietf-key-chain",
@@ -269,7 +269,7 @@
             {
                 "name": "ietf-alto",
                 "namespace": "urn:ietf:params:xml:ns:yang:ietf-alto",
-                "revision": "2026-01-26",
+                "revision": "2026-02-04",
                 "feature": [
                     "alto-server"
                 ],
@@ -278,31 +278,31 @@
             {
                 "name": "ietf-alto-stats",
                 "namespace": "urn:ietf:params:xml:ns:yang:ietf-alto-stats",
-                "revision": "2026-01-26",
+                "revision": "2026-02-04",
                 "conformance-type": "implement"
             },
             {
                 "name": "example-alto-server-discovery",
                 "namespace": "https://example.com/ns/example-alto-server-discovery",
-                "revision": "2026-01-26",
+                "revision": "2026-02-04",
                 "conformance-type": "implement"
             },
             {
                 "name": "example-alto-auth",
                 "namespace": "https://example.com/ns/example-alto-auth",
-                "revision": "2026-01-26",
+                "revision": "2026-02-04",
                 "conformance-type": "implement"
             },
             {
                 "name": "example-alto-data-source",
                 "namespace": "https://example.com/ns/example-alto-data-source",
-                "revision": "2026-01-26",
+                "revision": "2026-02-04",
                 "conformance-type": "implement"
             },
             {
                 "name": "example-alto-alg",
                 "namespace": "https://example.com/ns/example-alto-alg",
-                "revision": "2026-01-26",
+                "revision": "2026-02-04",
                 "conformance-type": "implement"
             },
             {

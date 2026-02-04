@@ -5,6 +5,6 @@
 ~~~ yang
 {::include yang/ietf-alto.yang}
 ~~~
-{: sourcecode-markers="true" sourcecode-name="ietf-alto@2026-01-26.yang"}
+{: sourcecode-markers="true" sourcecode-name="ietf-alto@2026-02-04.yang"}
 
 <!-- End of sections -->

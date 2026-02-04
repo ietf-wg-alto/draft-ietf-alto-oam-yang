@@ -30,7 +30,7 @@ module example-alto-auth {
     "This module contains a collection of vendor-specific cases of
      client authentication approaches for ALTO.";
 
-  revision 2026-01-26 {
+  revision 2026-02-04 {
     description
       "Version 1.0";
     reference

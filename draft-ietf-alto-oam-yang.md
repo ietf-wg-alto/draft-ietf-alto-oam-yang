@@ -139,14 +139,14 @@ See details: https://github.com/cabo/kramdown-rfc/issues/106
 ~~~ yang
 {::include yang/ietf-alto.yang}
 ~~~
-{: sourcecode-markers="true" sourcecode-name="ietf-alto@2026-01-26.yang"}
+{: sourcecode-markers="true" sourcecode-name="ietf-alto@2026-02-04.yang"}
 
 ## The "ietf-alto-stats" YANG Module
 
 ~~~ yang
 {::include yang/ietf-alto-stats.yang}
 ~~~
-{: sourcecode-markers="true" sourcecode-name="ietf-alto-stats@2026-01-26.yang"}
+{: sourcecode-markers="true" sourcecode-name="ietf-alto-stats@2026-02-04.yang"}
 
 {::include others.md}
 
