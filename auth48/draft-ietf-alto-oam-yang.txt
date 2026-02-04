@@ -5,14 +5,14 @@
 ALTO WG                                                         J. Zhang
 Internet-Draft                                         Tongji University
 Intended status: Standards Track                                D. Dhody
-Expires: 6 August 2026                               Huawei Technologies
+Expires: 8 August 2026                                            Huawei
                                                                   K. Gao
                                                       Sichuan University
                                                                R. Schott
                                                         Deutsche Telekom
                                                                    Q. Ma
                                                                   Huawei
-                                                         2 February 2026
+                                                         4 February 2026
 
 
  YANG Data Models for the Application-Layer Traffic Optimization (ALTO)
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 August 2026.
+   This Internet-Draft will expire on 8 August 2026.
 
 Copyright Notice
 
@@ -3967,10 +3967,7 @@ Authors' Addresses
 
 
    Dhruv Dhody
-   Huawei Technologies
-   Divyashree Techno Park, Whitefield
-   Bangalore 560066
-   Karnataka
+   Huawei
    India
    Email: dhruv.ietf@gmail.com
 
