@@ -6,7 +6,7 @@ module ietf-alto-stats {
   import ietf-yang-types {
     prefix yang;
     reference
-      "RFC 6991: Common YANG Data Types, Section 3";
+      "RFC 9911: Common YANG Data Types, Section 3";
   }
   import ietf-alto {
     prefix alto;

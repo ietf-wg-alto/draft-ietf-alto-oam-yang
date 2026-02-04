@@ -54,8 +54,8 @@ are shown in [](#tbl-yang-prefixes).
 |---
 | Prefix | YANG module | Reference
 |:-|:-|:-
-| yang | ietf-yang-types | {{RFC6991}}
-| inet | ietf-inet-types | {{RFC6991}}
+| yang | ietf-yang-types | {{RFC9911}}
+| inet | ietf-inet-types | {{RFC9911}}
 | ds | ietf-datastores | {{RFC8342}}
 | yp | ietf-yang-push | {{RFC8641}}
 | ts | ietf-truststore | {{RFC9641}}
