@@ -2150,7 +2150,7 @@ type-specific parameters. These type-specific parameters can be split into two c
 <ol start="1" type="1" class="normal type-1" id="section-5.4.2-8">
 <li id="section-5.4.2-8.1">
               <p id="section-5.4.2-8.1.1">One category of the type-specific parameters is common for the same type
-of ALTO information resource. They declare the Capabilities of the ALTO
+of ALTO information resource. They declare the Capabilities attribute of the ALTO
 information resource (Section 9.1.3 of <span>[<a href="#RFC7285" class="cite xref">RFC7285</a>]</span>).<a href="#section-5.4.2-8.1.1" class="pilcrow">¶</a></p>
 </li>
             <li id="section-5.4.2-8.2">
@@ -2367,7 +2367,7 @@ resource-level failure counters.<a href="#section-6.1-2" class="pilcrow">¶</a><
         <h3 id="name-model-for-alto-specific-per">
 <a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-model-for-alto-specific-per" class="section-name selfRef">Model for ALTO-specific Performance Monitoring</a>
         </h3>
-<p id="section-6.2-1">To satisfy R7 in <a href="#requirements" class="auto internal xref">Section 4.2</a>,the "ietf-alto-stats" module also contains statistics for ALTO-specific performance metrics (<a href="#tree-stat" class="auto internal xref">Figure 10</a>).<a href="#section-6.2-1" class="pilcrow">¶</a></p>
+<p id="section-6.2-1">To satisfy R7 in <a href="#requirements" class="auto internal xref">Section 4.2</a>, the "ietf-alto-stats" module also contains statistics for ALTO-specific performance metrics (<a href="#tree-stat" class="auto internal xref">Figure 10</a>).<a href="#section-6.2-1" class="pilcrow">¶</a></p>
 <p id="section-6.2-2">More specifically, this data model contains the following measurement
 information of "system and service performance" suggested by <span>[<a href="#RFC7285" class="cite xref">RFC7285</a>]</span> and
 <span>[<a href="#RFC7971" class="cite xref">RFC7971</a>]</span>:<a href="#section-6.2-2" class="pilcrow">¶</a></p>
@@ -2427,7 +2427,7 @@ impact" suggested by <span>[<a href="#RFC7971" class="cite xref">RFC7971</a>]</s
 <a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-the-ietf-alto-yang-module" class="section-name selfRef">The "ietf-alto" YANG Module</a>
         </h3>
 <div class="breakable lang-yang sourcecode" id="section-7.1-1">
-<pre>&lt;CODE BEGINS&gt; file "ietf-alto@2026-01-26.yang"
+<pre>&lt;CODE BEGINS&gt; file "ietf-alto@2026-02-04.yang"
 
 module ietf-alto {
   yang-version 1.1;
@@ -2469,7 +2469,7 @@ module ietf-alto {
     "This YANG module defines a set of configured and operational
      parameters of an administrated ALTO server instance.
 
-     Copyright (c) 2023 IETF Trust and the persons identified as
+     Copyright (c) 2026 IETF Trust and the persons identified as
      authors of the code.  All rights reserved.
 
      Redistribution and use in source and binary forms, with or
@@ -2483,7 +2483,7 @@ module ietf-alto {
      (https://www.rfc-editor.org/info/rfcXXXX); see the RFC itself
      for full legal notices.";
 
-  revision 2026-01-26 {
+  revision 2026-02-04 {
     description
       "Initial Version.";
     reference
@@ -3904,7 +3904,7 @@ module ietf-alto {
 <a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-the-ietf-alto-stats-yang-mo" class="section-name selfRef">The "ietf-alto-stats" YANG Module</a>
         </h3>
 <div class="breakable lang-yang sourcecode" id="section-7.2-1">
-<pre>&lt;CODE BEGINS&gt; file "ietf-alto-stats@2026-01-26.yang"
+<pre>&lt;CODE BEGINS&gt; file "ietf-alto-stats@2026-02-04.yang"
 
 module ietf-alto-stats {
   yang-version 1.1;
@@ -3918,6 +3918,7 @@ module ietf-alto-stats {
   }
   import ietf-alto {
     prefix alto;
+    revision-date 2026-02-04;
     reference
       "RFC XXXX: YANG Data Models for the Application-Layer
                  Traffic Optimization (ALTO) Protocol";
@@ -3932,7 +3933,7 @@ module ietf-alto-stats {
     "This YANG module defines a set of statistics of an ALTO
      server instance.
 
-     Copyright (c) 2023 IETF Trust and the persons identified as
+     Copyright (c) 2026 IETF Trust and the persons identified as
      authors of the code.  All rights reserved.
 
      Redistribution and use in source and binary forms, with or
@@ -3946,7 +3947,7 @@ module ietf-alto-stats {
      (https://www.rfc-editor.org/info/rfcXXXX); see the RFC itself
      for full legal notices.";
 
-  revision 2026-01-26 {
+  revision 2026-02-04 {
     description
       "Initial Version.";
     reference
@@ -4699,7 +4700,7 @@ module example-alto-server-discovery {
     "This module contains a collection of vendor-specific cases of
      server discovery mechanisms for ALTO.";
 
-  revision 2026-01-26 {
+  revision 2026-02-04 {
     description
       "Version 1.0";
     reference
@@ -4833,7 +4834,7 @@ module example-alto-auth {
     "This module contains a collection of vendor-specific cases of
      client authentication approaches for ALTO.";
 
-  revision 2026-01-26 {
+  revision 2026-02-04 {
     description
       "Version 1.0";
     reference
@@ -4942,7 +4943,7 @@ module example-alto-data-source {
     "This module contains a collection of vendor-specific cases of
      data sources for ALTO.";
 
-  revision 2026-01-26 {
+  revision 2026-02-04 {
     description
       "Version 1.0";
     reference
@@ -5120,7 +5121,7 @@ module example-alto-alg {
     "This module contains a collection of vendor-specific cases of
      information resource creation algorithms for ALTO.";
 
-  revision 2026-01-26 {
+  revision 2026-02-04 {
     description
       "Version 1.0";
     reference
